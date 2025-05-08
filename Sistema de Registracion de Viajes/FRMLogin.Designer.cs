@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Registracion_de_Viajes
 {
-    partial class Login
+    partial class FRMLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             this.btnLogin.Location = new System.Drawing.Point(334, 213);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 31);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
@@ -50,7 +50,7 @@
             this.txtNombre.Location = new System.Drawing.Point(331, 133);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 0;
             // 
             // label1
             // 
@@ -58,7 +58,7 @@
             this.label1.Location = new System.Drawing.Point(331, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 15);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Usuario";
             // 
             // label2
@@ -67,7 +67,7 @@
             this.label2.Location = new System.Drawing.Point(331, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 15);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 5;
             this.label2.Text = "Contrasenia";
             // 
             // txtContrasenia
@@ -75,18 +75,18 @@
             this.txtContrasenia.Location = new System.Drawing.Point(331, 177);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(100, 20);
-            this.txtContrasenia.TabIndex = 3;
+            this.txtContrasenia.TabIndex = 1;
             // 
             // btnCreateAccount
             // 
             this.btnCreateAccount.Location = new System.Drawing.Point(331, 260);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(100, 34);
-            this.btnCreateAccount.TabIndex = 5;
+            this.btnCreateAccount.TabIndex = 3;
             this.btnCreateAccount.Text = "Create Account";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
             // 
-            // Login
+            // FRMLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,7 +97,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnLogin);
-            this.Name = "Login";
+            this.Name = "FRMLogin";
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistema_de_Registracion_de_Viajes
 {
-    public partial class Login : Form
+    public partial class FRMRegister : Form
     {
-        public Login()
+        public FRMRegister()
         {
             InitializeComponent();
         }
