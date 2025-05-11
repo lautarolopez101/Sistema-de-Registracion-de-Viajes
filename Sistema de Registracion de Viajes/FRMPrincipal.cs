@@ -37,5 +37,10 @@ namespace Sistema_de_Registracion_de_Viajes
             register.FormBorderStyle = FormBorderStyle.None;
             register.Show();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
