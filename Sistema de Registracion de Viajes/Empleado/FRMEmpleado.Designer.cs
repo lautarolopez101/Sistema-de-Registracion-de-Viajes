@@ -72,8 +72,8 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.logOutToolStripMenuItem.Text = "Comprar Boletos";
             // 
             // FRMEmpleado
             // 

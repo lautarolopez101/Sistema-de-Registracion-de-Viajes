@@ -46,15 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLS\CLSAdministrador.cs" />
-    <Compile Include="CLS\CLSEmpleado.cs" />
-    <Compile Include="CLS\CLSPasajero.cs" />
-    <Compile Include="CLS\CLSPersona.cs" />
+    <Compile Include="Empresas\CLSEmpresas.cs" />
+    <Compile Include="Empresas\FRMLista_Empresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresas\FRMLista_Empresas.Designer.cs">
+      <DependentUpon>FRMLista_Empresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pasajes\CLSPasajecs.cs" />
+    <Compile Include="CLSPrincipales\CLSAdministrador.cs" />
+    <Compile Include="CLSPrincipales\CLSEmpleado.cs" />
+    <Compile Include="CLSPrincipales\CLSPasajero.cs" />
+    <Compile Include="CLSPrincipales\CLSPersona.cs" />
     <Compile Include="Empleado\FRMEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Empleado\FRMEmpleado.Designer.cs">
       <DependentUpon>FRMEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas\FRMEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresas\FRMEmpresas.Designer.cs">
+      <DependentUpon>FRMEmpresas.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMPasajeros.cs">
       <SubType>Form</SubType>
@@ -85,6 +99,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Empleado\FRMEmpleado.resx">
       <DependentUpon>FRMEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresas\FRMEmpresas.resx">
+      <DependentUpon>FRMEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresas\FRMLista_Empresas.resx">
+      <DependentUpon>FRMLista_Empresas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMPasajeros.resx">
       <DependentUpon>FRMPasajeros.cs</DependentUpon>
