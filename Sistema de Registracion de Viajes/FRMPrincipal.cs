@@ -18,6 +18,16 @@ namespace Sistema_de_Registracion_de_Viajes
             InitializeComponent();
         }
 
+        private void FRMPrincipal_Load(object sender, EventArgs e)
+        {
+            FRMLogin login = new FRMLogin();
+            login.MdiParent = this;
+            login.Dock = DockStyle.Fill;
+            login.TopLevel = false;
+            login.FormBorderStyle = FormBorderStyle.None;
+            login.Show();
+        }
+
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FRMLogin login = new FRMLogin();
@@ -38,9 +48,15 @@ namespace Sistema_de_Registracion_de_Viajes
             register.Show();
         }
 
+<<<<<<< HEAD
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+=======
+        private void sistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> cbd90bf (Login-Sign Up, Hay que Probar)
         }
     }
 }

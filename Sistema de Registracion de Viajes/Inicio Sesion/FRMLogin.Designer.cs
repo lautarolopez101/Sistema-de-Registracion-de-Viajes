@@ -29,74 +29,83 @@
         private void InitializeComponent()
         {
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtContrasenia = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(334, 213);
+            this.btnLogin.Location = new System.Drawing.Point(445, 262);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 31);
+            this.btnLogin.Size = new System.Drawing.Size(100, 38);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // txtNombre
+            // txtUser
             // 
-            this.txtNombre.Location = new System.Drawing.Point(331, 133);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 0;
+            this.txtUser.Location = new System.Drawing.Point(441, 164);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(132, 22);
+            this.txtUser.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(331, 112);
+            this.label1.Location = new System.Drawing.Point(441, 138);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 15);
+            this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Usuario";
+            this.label1.Text = "User";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(331, 156);
+            this.label2.Location = new System.Drawing.Point(441, 192);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 15);
+            this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Contrasenia";
+            this.label2.Text = "Password";
             // 
-            // txtContrasenia
+            // txtPassword
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(331, 177);
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(100, 20);
-            this.txtContrasenia.TabIndex = 1;
+            this.txtPassword.Location = new System.Drawing.Point(441, 218);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(132, 22);
+            this.txtPassword.TabIndex = 1;
             // 
             // btnCreateAccount
             // 
-            this.btnCreateAccount.Location = new System.Drawing.Point(331, 260);
+            this.btnCreateAccount.Location = new System.Drawing.Point(441, 320);
+            this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(100, 34);
+            this.btnCreateAccount.Size = new System.Drawing.Size(133, 42);
             this.btnCreateAccount.TabIndex = 3;
-            this.btnCreateAccount.Text = "Create Account";
+            this.btnCreateAccount.Text = "Create an Account";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // FRMLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnCreateAccount);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtContrasenia);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtUser);
             this.Controls.Add(this.btnLogin);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRMLogin";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -107,10 +116,10 @@
         #endregion
 
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtContrasenia;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnCreateAccount;
     }
 }
