@@ -38,7 +38,7 @@ namespace Sistema_de_Registracion_de_Viajes
                 var data = line.Split(',');
                 if (data[0] == user && data[1] == password)
                 {
-                    MessageBox.Show("Login Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Login Successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }

@@ -46,10 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLSAdministrador.cs" />
-    <Compile Include="CLSEmpleado.cs" />
-    <Compile Include="CLSPasajero.cs" />
-    <Compile Include="CLSPersona.cs" />
+    <Compile Include="CLS\CLSAdministrador.cs" />
+    <Compile Include="CLS\CLSEmpleado.cs" />
+    <Compile Include="CLS\CLSPasajero.cs" />
+    <Compile Include="CLS\CLSPersona.cs" />
+    <Compile Include="Empleado\FRMEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleado\FRMEmpleado.Designer.cs">
+      <DependentUpon>FRMEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMPasajeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMPasajeros.Designer.cs">
+      <DependentUpon>FRMPasajeros.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +83,12 @@
     <Compile Include="Pasajeros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Empleado\FRMEmpleado.resx">
+      <DependentUpon>FRMEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMPasajeros.resx">
+      <DependentUpon>FRMPasajeros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio Sesion\FRMLogin.resx">
       <DependentUpon>FRMLogin.cs</DependentUpon>
     </EmbeddedResource>

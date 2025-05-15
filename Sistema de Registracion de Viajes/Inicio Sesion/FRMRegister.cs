@@ -24,20 +24,32 @@ namespace Sistema_de_Registracion_de_Viajes
             {
                 if(txtPassword.Text == txtPassword_Confirm.Text)
                  {
-                    if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtApellido.Text) && !string.IsNullOrEmpty(txtNombre_Usuario.Text) && !string.IsNullOrEmpty(txtPassword.Text))
+                    if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtApellido.Text) && !string.IsNullOrEmpty(txtUser.Text) && !string.IsNullOrEmpty(txtPassword.Text))
                     {
-                        Pasajeros cliente = new Pasajeros(
-                            txtNombre_Usuario.Text,
+                        CLSPasajero cliente = new CLSPasajero(
+                            txtUser.Text,
                             txtPassword.Text,
                             txtNombre.Text,
                             txtApellido.Text,
-                            DTPFecha_Nacimiento.Text,
-                            Convert.ToInt32(txtDNI.Text)
+                            Convert.ToInt32(txtDNI.Text),
+                            Convert.ToDateTime(DTPFecha_Nacimiento.Text),
+                            txtDireccion.Text,
+                            Convert.ToInt32(txtTelefono.Text),
+                            txtMail.Text
                         );
 
                         using (StreamWriter sw = new StreamWriter("Clientes.csv", true))
                         {
-                            sw.WriteLine($"{cliente.Nombre_Usuario},{cliente.Password},{cliente.Nombre},{cliente.Apellido},{cliente.Fecha_Nacimiento},{cliente.DNI}");
+                            sw.WriteLine($"{cliente.User}," +
+                                $"{cliente.Password}," +
+                                $"{cliente.Nombre}," +
+                                $"{cliente.Apellido}," +
+                                $"{cliente.DNI}," +
+                                $"{cliente.Fecha_Nacimiento}," +
+                                $"{cliente.Direccion}," +
+                                $"{cliente.Telefono}," +
+                                $"{cliente.Correo}");
+
                         }
                         MessageBox.Show("Cliente Creado Exitosamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -59,10 +71,13 @@ namespace Sistema_de_Registracion_de_Viajes
             txtNombre.Clear();
             txtApellido.Clear();
             txtDNI.Clear();
-            txtNombre_Usuario.Clear();
+            txtUser.Clear();
             txtPassword.Clear();
             txtPassword_Confirm.Clear();
             DTPFecha_Nacimiento.ResetText();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtMail.Clear();
             txtNombre.Focus();
         }
 
