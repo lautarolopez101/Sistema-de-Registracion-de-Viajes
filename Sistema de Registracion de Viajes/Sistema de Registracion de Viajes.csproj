@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLSAdministrador.cs" />
+    <Compile Include="CLSEmpleado.cs" />
+    <Compile Include="CLSPasajero.cs" />
+    <Compile Include="CLSPersona.cs" />
     <Compile Include="FRMPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,7 +68,7 @@
     <Compile Include="Inicio Sesion\FRMRegister.Designer.cs">
       <DependentUpon>FRMRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cliente.cs" />
+    <Compile Include="Pasajeros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Inicio Sesion\FRMLogin.resx">

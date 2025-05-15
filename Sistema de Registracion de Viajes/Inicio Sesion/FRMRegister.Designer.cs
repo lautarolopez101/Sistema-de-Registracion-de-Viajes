@@ -41,15 +41,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtPassword_Confirm = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCrear_Cuenta
             // 
-            this.btnCrear_Cuenta.Location = new System.Drawing.Point(389, 217);
+            this.btnCrear_Cuenta.Location = new System.Drawing.Point(356, 315);
             this.btnCrear_Cuenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear_Cuenta.Name = "btnCrear_Cuenta";
             this.btnCrear_Cuenta.Size = new System.Drawing.Size(124, 33);
-            this.btnCrear_Cuenta.TabIndex = 6;
+            this.btnCrear_Cuenta.TabIndex = 7;
             this.btnCrear_Cuenta.Text = "Crear Cuenta";
             this.btnCrear_Cuenta.UseVisualStyleBackColor = true;
             this.btnCrear_Cuenta.Click += new System.EventHandler(this.btnCrear_Cuenta_Click);
@@ -165,11 +167,31 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Password";
             // 
+            // txtPassword_Confirm
+            // 
+            this.txtPassword_Confirm.Location = new System.Drawing.Point(546, 165);
+            this.txtPassword_Confirm.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword_Confirm.Name = "txtPassword_Confirm";
+            this.txtPassword_Confirm.Size = new System.Drawing.Size(156, 22);
+            this.txtPassword_Confirm.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(542, 142);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Password Confirmed";
+            // 
             // FRMRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.txtPassword_Confirm);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtNombre_Usuario);
@@ -206,5 +228,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtPassword_Confirm;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_de_Registracion_de_Viajes
 {
-    public class Cliente
+    public class Pasajeros
     {
 
         public string Nombre { get; set; }
@@ -17,7 +17,7 @@ namespace Sistema_de_Registracion_de_Viajes
         public int DNI {  get; set; }
 
 
-        public Cliente(string nombre_usuario,string password,string nombre,string apellido, string fecha_nacimiento, int dni)
+        public Pasajeros(string nombre_usuario,string password,string nombre,string apellido, string fecha_nacimiento, int dni)
         {
             Nombre = nombre;
             Apellido = apellido;
