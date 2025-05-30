@@ -8,13 +8,13 @@ namespace Sistema_de_Registracion_de_Viajes
 {
     public abstract class CLSPersona
     {
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
         public int DNI { get; set; }
         public DateTime Fecha_Nacimiento { get; set; }
-        public string Direccion { get; set; }
-        public int Telefono { get; set; }
-        public string Correo { get; set; }
+        public string Address { get; set; }
+        public int Phone { get; set; }
+        public string Mail { get; set; }
         private int Edad_;
 
         public int Edad
@@ -22,15 +22,15 @@ namespace Sistema_de_Registracion_de_Viajes
             set { Edad_ = ( DateTime.Now.Year -  Fecha_Nacimiento.Year); }
         }
 
-        public CLSPersona(string nombre, string apellido, int dni, DateTime fecha_nacimiento, string direccion, int telefono, string correo)
+        public CLSPersona(string name, string lastname, int dni, DateTime fecha_nacimiento, string address, int phone, string mail)
         {
-            Nombre = nombre;
-            Apellido = apellido;
+            Name = name;
+            LastName = lastname;
             DNI = dni;
             Fecha_Nacimiento = fecha_nacimiento;
-            Direccion = direccion;
-            Telefono = telefono;
-            Correo = correo;
+            Address = address;
+            Phone = phone;
+            Mail = mail;
         }
     }
 }

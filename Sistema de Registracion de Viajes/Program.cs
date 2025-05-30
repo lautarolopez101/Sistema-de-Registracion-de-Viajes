@@ -16,7 +16,7 @@ namespace Sistema_de_Registracion_de_Viajes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRMPrincipal());
+            Application.Run(new FRMLogin());
         }
     }
 }

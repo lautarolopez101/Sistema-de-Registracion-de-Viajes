@@ -53,6 +53,12 @@
     <Compile Include="Empresas\FRMLista_Empresas.Designer.cs">
       <DependentUpon>FRMLista_Empresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inicio Sesion\FRMSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio Sesion\FRMSignup.Designer.cs">
+      <DependentUpon>FRMSignup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pasajes\CLSPasajecs.cs" />
     <Compile Include="CLSPrincipales\CLSAdministrador.cs" />
     <Compile Include="CLSPrincipales\CLSEmpleado.cs" />
@@ -76,23 +82,11 @@
     <Compile Include="FRMPasajeros.Designer.cs">
       <DependentUpon>FRMPasajeros.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRMPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FRMPrincipal.Designer.cs">
-      <DependentUpon>FRMPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inicio Sesion\FRMLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio Sesion\FRMLogin.Designer.cs">
       <DependentUpon>FRMLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio Sesion\FRMRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inicio Sesion\FRMRegister.Designer.cs">
-      <DependentUpon>FRMRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Pasajeros.cs" />
     <Compile Include="Program.cs" />
@@ -112,11 +106,8 @@
     <EmbeddedResource Include="Inicio Sesion\FRMLogin.resx">
       <DependentUpon>FRMLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRMPrincipal.resx">
-      <DependentUpon>FRMPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inicio Sesion\FRMRegister.resx">
-      <DependentUpon>FRMRegister.cs</DependentUpon>
+    <EmbeddedResource Include="Inicio Sesion\FRMSignup.resx">
+      <DependentUpon>FRMSignup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

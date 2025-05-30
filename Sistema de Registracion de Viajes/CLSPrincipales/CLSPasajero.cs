@@ -11,8 +11,8 @@ namespace Sistema_de_Registracion_de_Viajes
 
         public string User { get; set; }
         public string Password { get; set; }
-        public CLSPasajero(string user, string password, string nombre, string apellido, int dni, DateTime fechaNacimiento, string direccion, int telefono, string email)
-        : base(nombre, apellido, dni, fechaNacimiento, direccion, telefono, email)
+        public CLSPasajero(string user, string password, string name, string lastname, int dni, DateTime fechaNacimiento, string address, int phone, string mail)
+        : base(name, lastname, dni, fechaNacimiento, address, phone, mail)
         {
             User = user;
             Password = password;
