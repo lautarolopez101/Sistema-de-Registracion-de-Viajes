@@ -63,9 +63,39 @@ namespace Sistema_de_Registracion_de_Viajes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Briefcase {
+            get {
+                object obj = ResourceManager.GetObject("Briefcase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Contacts {
+            get {
+                object obj = ResourceManager.GetObject("Contacts", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Logo-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MySpace {
+            get {
+                object obj = ResourceManager.GetObject("MySpace", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

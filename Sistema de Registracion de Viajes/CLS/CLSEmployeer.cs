@@ -9,16 +9,16 @@ namespace Sistema_de_Registracion_de_Viajes
     public class CLSEmployeer : CLSClient
     {
 
-        public static CLSEmployeer CurrentEmployeer { get; private set; }
-        public static void login(CLSEmployeer employeer)
+        public  static CLSEmployeer CurrentEmployeer { get; private set; }
+        public  static void loginemp(CLSEmployeer employeer)
         {
             CurrentEmployeer = employeer;
         }
-        public static void logout()
+        public  static void logoutemp()
         {
             CurrentEmployeer = null;
         }
-        public static bool isLoggedIn()
+        public  static bool isLoggedInemp()
         {
             return CurrentEmployeer != null;
         }

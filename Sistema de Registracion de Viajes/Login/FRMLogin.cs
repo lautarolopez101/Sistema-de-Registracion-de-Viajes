@@ -73,6 +73,7 @@ namespace Sistema_de_Registracion_de_Viajes
                                 //Admin
                                 CurrentAdmin = new CLSAdministrador(0, data[1], data[2], data[3], data[4],
                                     int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                CLSAdministrador.loginadmin(CurrentAdmin);
                                 userExists = true;
                                 FormShow(rol);
                                 break;
@@ -84,6 +85,7 @@ namespace Sistema_de_Registracion_de_Viajes
                                     //Employeer
                                     CurrentEmployeer = new CLSEmployeer(1, data[1], data[2], data[3], data[4],
                                         int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                    CLSEmployeer.loginemp(CurrentEmployeer);
                                     userExists = true;
                                     FormShow(rol);
                                     break;
@@ -93,6 +95,7 @@ namespace Sistema_de_Registracion_de_Viajes
                                     //Client
                                     CurrentClient = new CLSClient(2, data[1], data[2], data[3], data[4],
                                         int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                    CLSClient.loginclient(CurrentClient);
                                     userExists = true;
                                     FormShow(rol);
                                     break;

@@ -103,6 +103,9 @@
     <Compile Include="Pasajeros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\FRMAdmin.resx">
+      <DependentUpon>FRMAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employeer\FRMEmployeer.resx">
       <DependentUpon>FRMEmployeer.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Briefcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MySpace.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

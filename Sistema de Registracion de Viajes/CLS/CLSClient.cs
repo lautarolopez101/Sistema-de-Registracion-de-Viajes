@@ -14,15 +14,15 @@ namespace Sistema_de_Registracion_de_Viajes
         public int Rol { get; set; }
 
         public static CLSClient CurrentClient { get; private set; }
-        public static void login(CLSClient client)
+        public  static void loginclient(CLSClient client)
         {
             CurrentClient = client;
         }
-        public static void logout()
+        public  static void logoutclient()
         {
             CurrentClient = null;
         }
-        public static bool isLoggedIn()
+        public  static bool isLoggedInclient()
         {
             return CurrentClient != null;
         }

@@ -38,7 +38,7 @@ namespace Sistema_de_Registracion_de_Viajes
 
                         if (rol == "Administrator")
                         {
-                            CLSAdministrador admin = new CLSAdministrador(1,txtUser.Text,txtPassword.Text,
+                            CLSAdministrador admin = new CLSAdministrador(0,txtUser.Text,txtPassword.Text,
                                 txtName.Text, txtLastName.Text, int.Parse(txtDNI.Text),dateTimePicker1.Value, //Create User 
                                 txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text 
                                 );
@@ -55,7 +55,7 @@ namespace Sistema_de_Registracion_de_Viajes
                             if (rol == "Employeer")
                             {
 
-                                CLSEmployeer employeer = new CLSEmployeer(2,txtUser.Text, txtPassword.Text,
+                                CLSEmployeer employeer = new CLSEmployeer(1,txtUser.Text, txtPassword.Text,
                                     txtName.Text, txtLastName.Text, int.Parse(txtDNI.Text), dateTimePicker1.Value,  //Create User 
                                     txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text
                                     );
@@ -71,7 +71,7 @@ namespace Sistema_de_Registracion_de_Viajes
                             else if(rol == "Client")
                             {
 
-                                CLSClient client = new CLSClient(3,txtUser.Text, txtPassword.Text,
+                                CLSClient client = new CLSClient(2,txtUser.Text, txtPassword.Text,
                                     txtName.Text, txtLastName.Text, int.Parse(txtDNI.Text), dateTimePicker1.Value,   //Create User 
                                     txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text
                                     );

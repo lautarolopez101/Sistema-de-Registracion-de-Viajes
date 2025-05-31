@@ -11,17 +11,17 @@ namespace Sistema_de_Registracion_de_Viajes
     {
         public static CLSAdministrador CurrentAdmin { get; private set; }
 
-        public static void login(CLSAdministrador admin)
+        public static void loginadmin(CLSAdministrador admin)
         {
             CurrentAdmin = admin;   
         }
 
-        public static void logout()
+        public static void logoutadmin()
         {
             CurrentAdmin = null;
         }
 
-        public static bool isLoggedIn()
+        public static bool isLoggedInadmin()
         {
             return CurrentAdmin != null;
         }
