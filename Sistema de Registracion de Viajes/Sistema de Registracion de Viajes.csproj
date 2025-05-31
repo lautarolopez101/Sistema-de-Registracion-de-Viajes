@@ -61,9 +61,9 @@
     </Compile>
     <Compile Include="Pasajes\CLSPasajecs.cs" />
     <Compile Include="CLSPrincipales\CLSAdministrador.cs" />
-    <Compile Include="CLSPrincipales\CLSEmpleado.cs" />
-    <Compile Include="CLSPrincipales\CLSPasajero.cs" />
-    <Compile Include="CLSPrincipales\CLSPersona.cs" />
+    <Compile Include="CLSPrincipales\CLSEmployeer.cs" />
+    <Compile Include="CLSPrincipales\CLSClient.cs" />
+    <Compile Include="CLSPrincipales\CLSPerson.cs" />
     <Compile Include="Empleado\FRMEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +118,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CLSPrincipales\Class Diagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

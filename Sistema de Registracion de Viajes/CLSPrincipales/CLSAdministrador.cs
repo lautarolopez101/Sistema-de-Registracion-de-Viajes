@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace Sistema_de_Registracion_de_Viajes
 {
-    public abstract  class CLSAdministrador :CLSEmpleado
+    public class CLSAdministrador :CLSEmployeer
     {
 
-        protected CLSAdministrador(string user, string password, string nombre, string apellido, int dni, DateTime fecha_nacimiento, string direccion, int telefono, string correo)
-            : base(user, password, nombre, apellido, dni, fecha_nacimiento, direccion, telefono, correo)
+        public CLSAdministrador()
+        {
+            // Constructor por defecto de CLSAdministrador (puedes agregar más lógica aquí si hace falta)
+        }
+        public CLSAdministrador(int rol, string user, string password, string name, 
+            string lastname, int dni, DateTime fecha_nacimiento, 
+            string address, int phone, string mail)
+            : base(rol, user, password, name, lastname, dni, fecha_nacimiento, address, phone, mail)
         {
             // Constructor de CLSAdministrador (puedes agregar más lógica aquí si hace falta)
         }

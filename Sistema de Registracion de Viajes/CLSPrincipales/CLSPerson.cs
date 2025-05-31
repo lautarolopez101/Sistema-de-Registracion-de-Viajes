@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_de_Registracion_de_Viajes
 {
-    public abstract class CLSPersona
+    public abstract class CLSPerson
     {
         public string Name { get; set; }
         public string LastName { get; set; }
@@ -22,7 +22,12 @@ namespace Sistema_de_Registracion_de_Viajes
             set { Edad_ = ( DateTime.Now.Year -  Fecha_Nacimiento.Year); }
         }
 
-        public CLSPersona(string name, string lastname, int dni, DateTime fecha_nacimiento, string address, int phone, string mail)
+        protected CLSPerson()
+        {
+            
+
+        }
+        public CLSPerson(string name, string lastname, int dni, DateTime fecha_nacimiento, string address, int phone, string mail)
         {
             Name = name;
             LastName = lastname;
