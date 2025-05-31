@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Registracion_de_Viajes.CLS
 {
-    partial class FRMEmpleado
+    partial class FRMEmployeer
     {
         /// <summary>
         /// Required designer variable.

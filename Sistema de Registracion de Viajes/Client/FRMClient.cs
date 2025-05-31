@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_de_Registracion_de_Viajes.CLS
+namespace Sistema_de_Registracion_de_Viajes.Client
 {
-    public partial class FRMEmpleado : Form
+    public partial class FRMClient : Form
     {
-        public FRMEmpleado()
+        public FRMClient()
         {
             InitializeComponent();
         }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Sistema_de_Registracion_de_Viajes.Admin;
+using Sistema_de_Registracion_de_Viajes.Client;
+using Sistema_de_Registracion_de_Viajes.CLS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,13 +50,19 @@ namespace Sistema_de_Registracion_de_Viajes
             signup.ShowDialog();
         }
 
+        // Current user login method
+        public CLSAdministrador CurrentAdmin { get; private set; }
+        public CLSEmployeer CurrentEmployeer { get; private set; }
+        public CLSClient CurrentClient { get; private set; }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
                 if(!string.IsNullOrEmpty(txtPassword.Text) || !string.IsNullOrEmpty(txtUser.Text))
                 {
-                    foreach(var line in File.ReadAllLines("users.csv"))
+                    bool userExists = false;
+                    foreach (var line in File.ReadAllLines("users.csv"))
                     {
                         var data = line.Split(',');
                         int rol = int.Parse(data[0]); // Assuming the first column is the role as an integer
@@ -62,26 +71,42 @@ namespace Sistema_de_Registracion_de_Viajes
                             if (rol == 0)
                             {
                                 //Admin
-                                CLSAdministrador admin = new CLSAdministrador(0, data[1], data[2], data[3], data[4],
+                                CurrentAdmin = new CLSAdministrador(0, data[1], data[2], data[3], data[4],
                                     int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                userExists = true;
+                                FormShow(rol);
+                                break;
                             }
                             else
                             {
                                 if (rol == 1)
                                 {
                                     //Employeer
+                                    CurrentEmployeer = new CLSEmployeer(1, data[1], data[2], data[3], data[4],
+                                        int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                    userExists = true;
+                                    FormShow(rol);
+                                    break;
                                 }
                                 else if (rol == 2)
                                 {
                                     //Client
+                                    CurrentClient = new CLSClient(2, data[1], data[2], data[3], data[4],
+                                        int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                    userExists = true;
+                                    FormShow(rol);
+                                    break;
                                 }
                             }
-
                         }
                         else
                         {
                             MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                    }
+                    if (!userExists)
+                    {
+                        MessageBox.Show("User can't be found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -92,6 +117,31 @@ namespace Sistema_de_Registracion_de_Viajes
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        public void FormShow(int i)
+        {
+            if (i == 0)
+            {
+                // Open Admin Form
+                FRMAdmin adminForm = new FRMAdmin();
+                adminForm.Show();
+            }
+            else
+            {
+                if (i == 2)
+                {
+                    // Open Employeer Form
+                    FRMEmployeer employeerForm = new FRMEmployeer();
+                    employeerForm.Show();
+                }
+                else if (i == 3)
+                {
+                    // Open Client Form
+                    FRMClient clientForm = new FRMClient();
+                    clientForm.Show();
+                }
             }
         }
 

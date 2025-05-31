@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,22 @@ namespace Sistema_de_Registracion_de_Viajes
 {
     public class CLSAdministrador :CLSEmployeer
     {
+        public static CLSAdministrador CurrentAdmin { get; private set; }
 
+        public static void login(CLSAdministrador admin)
+        {
+            CurrentAdmin = admin;   
+        }
+
+        public static void logout()
+        {
+            CurrentAdmin = null;
+        }
+
+        public static bool isLoggedIn()
+        {
+            return CurrentAdmin != null;
+        }
         public CLSAdministrador()
         {
             // Constructor por defecto de CLSAdministrador (puedes agregar más lógica aquí si hace falta)

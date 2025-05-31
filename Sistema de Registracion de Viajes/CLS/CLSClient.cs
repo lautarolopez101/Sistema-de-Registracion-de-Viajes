@@ -13,6 +13,20 @@ namespace Sistema_de_Registracion_de_Viajes
         public string Password { get; set; }
         public int Rol { get; set; }
 
+        public static CLSClient CurrentClient { get; private set; }
+        public static void login(CLSClient client)
+        {
+            CurrentClient = client;
+        }
+        public static void logout()
+        {
+            CurrentClient = null;
+        }
+        public static bool isLoggedIn()
+        {
+            return CurrentClient != null;
+        }
+
         public CLSClient()
         {
             

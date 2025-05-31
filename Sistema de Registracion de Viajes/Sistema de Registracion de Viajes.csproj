@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\FRMAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMAdmin.Designer.cs">
+      <DependentUpon>FRMAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\FRMClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\FRMClient.Designer.cs">
+      <DependentUpon>FRMClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Empresas\CLSEmpresas.cs" />
     <Compile Include="Empresas\FRMLista_Empresas.cs">
       <SubType>Form</SubType>
@@ -53,22 +65,22 @@
     <Compile Include="Empresas\FRMLista_Empresas.Designer.cs">
       <DependentUpon>FRMLista_Empresas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inicio Sesion\FRMSignup.cs">
+    <Compile Include="Login\FRMSignup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio Sesion\FRMSignup.Designer.cs">
+    <Compile Include="Login\FRMSignup.Designer.cs">
       <DependentUpon>FRMSignup.cs</DependentUpon>
     </Compile>
     <Compile Include="Pasajes\CLSPasajecs.cs" />
-    <Compile Include="CLSPrincipales\CLSAdministrador.cs" />
-    <Compile Include="CLSPrincipales\CLSEmployeer.cs" />
-    <Compile Include="CLSPrincipales\CLSClient.cs" />
-    <Compile Include="CLSPrincipales\CLSPerson.cs" />
-    <Compile Include="Empleado\FRMEmpleado.cs">
+    <Compile Include="CLS\CLSAdministrador.cs" />
+    <Compile Include="CLS\CLSEmployeer.cs" />
+    <Compile Include="CLS\CLSClient.cs" />
+    <Compile Include="CLS\CLSPerson.cs" />
+    <Compile Include="Employeer\FRMEmployeer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Empleado\FRMEmpleado.Designer.cs">
-      <DependentUpon>FRMEmpleado.cs</DependentUpon>
+    <Compile Include="Employeer\FRMEmployeer.Designer.cs">
+      <DependentUpon>FRMEmployeer.cs</DependentUpon>
     </Compile>
     <Compile Include="Empresas\FRMEmpresas.cs">
       <SubType>Form</SubType>
@@ -82,17 +94,17 @@
     <Compile Include="FRMPasajeros.Designer.cs">
       <DependentUpon>FRMPasajeros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inicio Sesion\FRMLogin.cs">
+    <Compile Include="Login\FRMLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio Sesion\FRMLogin.Designer.cs">
+    <Compile Include="Login\FRMLogin.Designer.cs">
       <DependentUpon>FRMLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Pasajeros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Empleado\FRMEmpleado.resx">
-      <DependentUpon>FRMEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="Employeer\FRMEmployeer.resx">
+      <DependentUpon>FRMEmployeer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empresas\FRMEmpresas.resx">
       <DependentUpon>FRMEmpresas.cs</DependentUpon>
@@ -103,10 +115,13 @@
     <EmbeddedResource Include="FRMPasajeros.resx">
       <DependentUpon>FRMPasajeros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio Sesion\FRMLogin.resx">
+    <EmbeddedResource Include="Login\FRMLogin.dje-NE.resx">
       <DependentUpon>FRMLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio Sesion\FRMSignup.resx">
+    <EmbeddedResource Include="Login\FRMLogin.resx">
+      <DependentUpon>FRMLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FRMSignup.resx">
       <DependentUpon>FRMSignup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -119,7 +134,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="CLSPrincipales\Class Diagram.cd" />
+    <None Include="CLS\Class Diagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

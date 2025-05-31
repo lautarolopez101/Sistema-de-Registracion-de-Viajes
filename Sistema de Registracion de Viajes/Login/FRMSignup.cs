@@ -111,6 +111,5 @@ namespace Sistema_de_Registracion_de_Viajes
             this.Close();
         }
 
-      
     }
 }
