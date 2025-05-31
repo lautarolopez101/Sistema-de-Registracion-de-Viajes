@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,10 +49,76 @@ namespace Sistema_de_Registracion_de_Viajes
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(!string.IsNullOrEmpty(txtPassword.Text) || !string.IsNullOrEmpty(txtUser.Text))
+                {
+                    foreach(var line in File.ReadAllLines("users.csv"))
+                    {
+                        var data = line.Split(',');
+                        int rol = int.Parse(data[0]); // Assuming the first column is the role as an integer
+                        if (data[1] == txtUser.Text && data[2] == txtPassword.Text)
+                        {
+                            if (rol == 0)
+                            {
+                                //Admin
+                                CLSAdministrador admin = new CLSAdministrador(0, data[1], data[2], data[3], data[4],
+                                    int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                            }
+                            else
+                            {
+                                if (rol == 1)
+                                {
+                                    //Employeer
+                                }
+                                else if (rol == 2)
+                                {
+                                    //Client
+                                }
+                            }
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
-      
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void txtUser_Leave(object sender, EventArgs e)
+        {
+           
+             txtUser.BackColor = Color.White;
+        }
+
+        private void txtUser_Enter(object sender, EventArgs e)
+        {
+         txtUser.BackColor = ColorTranslator.FromHtml("#E8F6FF");
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            txtPassword.BackColor = Color.White;
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            txtPassword.BackColor = ColorTranslator.FromHtml("#E8F6FF");
+        }
     }
 }
