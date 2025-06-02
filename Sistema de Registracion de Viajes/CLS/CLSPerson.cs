@@ -36,6 +36,7 @@ namespace Sistema_de_Registracion_de_Viajes
             Address = address;
             Phone = phone;
             Mail = mail;
+           
         }
     }
 }

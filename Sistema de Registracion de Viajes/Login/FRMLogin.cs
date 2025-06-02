@@ -128,7 +128,7 @@ namespace Sistema_de_Registracion_de_Viajes
             if (i == 0)
             {
                 // Open Admin Form
-                FRMAdmin adminForm = new FRMAdmin();
+                FRMClient adminForm = new FRMAdmin();
                 adminForm.Show();
             }
             else

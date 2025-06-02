@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,31 +24,44 @@ namespace Sistema_de_Registracion_de_Viajes.Admin
         public CLSAdministrador Currentadmin { get; private set; }
 
 
+        private void OpenForm(object formson)
+        {
+            if(this.mainpanel.Controls.Count > 0)
+                this.mainpanel.Controls.RemoveAt(0);
+            Form fh = formson as Form;
+            fh.FormBorderStyle = FormBorderStyle.None;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.mainpanel.Controls.Add(fh);
+            this.mainpanel.Tag = fh;
+            fh.Show();
+        }
+
         //Functionality for the buttons in the sidebar
 
         private void btnEmployeerManage_Click(object sender, EventArgs e)
         {
-
+            OpenForm(new FRMEmployeerManager());
         }
 
         private void btnClientManage_Click(object sender, EventArgs e)
         {
-
+            OpenForm(new FRMClientManager());
         }
 
         private void btnTripManage_Click(object sender, EventArgs e)
         {
-
+            OpenForm(new FRMTripManager());
         }
 
         private void btnAccoutnsManage_Click(object sender, EventArgs e)
         {
-
+            OpenForm(new FRMAccountsManager());
         }
 
         private void btnCompaniesManage_Click(object sender, EventArgs e)
         {
-
+            OpenForm(new FRMCompaniesManager());
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -57,7 +71,13 @@ namespace Sistema_de_Registracion_de_Viajes.Admin
         }
 
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            CLSAdministrador.logoutadmin();
+            this.Close();
+        }
 
+       
 
 
 
@@ -102,7 +122,10 @@ namespace Sistema_de_Registracion_de_Viajes.Admin
                 
             }
         }
-
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+        }
         private void menubutton_Click(object sender, EventArgs e)
         {
             // set timer interval to lowest to make it smoother
@@ -137,6 +160,20 @@ namespace Sistema_de_Registracion_de_Viajes.Admin
             ManagerTimer.Start();
         }
 
-       
+        private void label1_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void bar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+
+        }
     }
 }

@@ -111,5 +111,9 @@ namespace Sistema_de_Registracion_de_Viajes
             this.Close();
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

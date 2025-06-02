@@ -46,11 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\FRMAccountsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMAccountsManager.Designer.cs">
+      <DependentUpon>FRMAccountsManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FRMAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\FRMAdmin.Designer.cs">
       <DependentUpon>FRMAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMClientManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMClientManager.Designer.cs">
+      <DependentUpon>FRMClientManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMCompaniesManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMCompaniesManager.Designer.cs">
+      <DependentUpon>FRMCompaniesManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMEmployeerManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMEmployeerManager.Designer.cs">
+      <DependentUpon>FRMEmployeerManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMTripManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMTripManager.Designer.cs">
+      <DependentUpon>FRMTripManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\FRMClient.cs">
       <SubType>Form</SubType>
@@ -105,6 +135,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin\FRMAdmin.resx">
       <DependentUpon>FRMAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\FRMClient.resx">
+      <DependentUpon>FRMClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employeer\FRMEmployeer.resx">
       <DependentUpon>FRMEmployeer.cs</DependentUpon>

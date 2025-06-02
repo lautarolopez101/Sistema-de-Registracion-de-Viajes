@@ -31,35 +31,100 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMAdmin));
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.btnManage = new System.Windows.Forms.Button();
-            this.btnClientManage = new System.Windows.Forms.Button();
-            this.btnEmployeerManage = new System.Windows.Forms.Button();
-            this.btnTripManage = new System.Windows.Forms.Button();
-            this.btnAccoutnsManage = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menubutton = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.menubutton = new System.Windows.Forms.PictureBox();
+            this.ManageContainer = new System.Windows.Forms.Panel();
+            this.btnManage = new System.Windows.Forms.Button();
+            this.btnEmployeerManage = new System.Windows.Forms.Button();
+            this.btnAccoutnsManage = new System.Windows.Forms.Button();
+            this.btnClientManage = new System.Windows.Forms.Button();
+            this.btnTripManage = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
-            this.ManageContainer = new System.Windows.Forms.Panel();
             this.ManagerTimer = new System.Windows.Forms.Timer(this.components);
-            this.mainpanel.SuspendLayout();
+            this.bar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubutton)).BeginInit();
             this.ManageContainer.SuspendLayout();
+            this.bar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainpanel
             // 
-            this.mainpanel.Controls.Add(this.sidebar);
-            this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainpanel.Location = new System.Drawing.Point(0, 0);
+            this.mainpanel.Location = new System.Drawing.Point(200, 32);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(999, 557);
+            this.mainpanel.Size = new System.Drawing.Size(800, 525);
             this.mainpanel.TabIndex = 2;
+            // 
+            // sidebar
+            // 
+            this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.sidebar.Controls.Add(this.panel1);
+            this.sidebar.Controls.Add(this.ManageContainer);
+            this.sidebar.Controls.Add(this.btnLogout);
+            this.sidebar.Location = new System.Drawing.Point(0, 0);
+            this.sidebar.MaximumSize = new System.Drawing.Size(200, 557);
+            this.sidebar.MinimumSize = new System.Drawing.Size(47, 557);
+            this.sidebar.Name = "sidebar";
+            this.sidebar.Size = new System.Drawing.Size(200, 557);
+            this.sidebar.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.menubutton);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 12;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(46, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Menu";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // menubutton
+            // 
+            this.menubutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menubutton.Image = ((System.Drawing.Image)(resources.GetObject("menubutton.Image")));
+            this.menubutton.Location = new System.Drawing.Point(7, 35);
+            this.menubutton.Name = "menubutton";
+            this.menubutton.Size = new System.Drawing.Size(31, 30);
+            this.menubutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.menubutton.TabIndex = 12;
+            this.menubutton.TabStop = false;
+            this.menubutton.Click += new System.EventHandler(this.menubutton_Click);
+            // 
+            // ManageContainer
+            // 
+            this.ManageContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.ManageContainer.Controls.Add(this.btnManage);
+            this.ManageContainer.Controls.Add(this.btnEmployeerManage);
+            this.ManageContainer.Controls.Add(this.btnAccoutnsManage);
+            this.ManageContainer.Controls.Add(this.btnClientManage);
+            this.ManageContainer.Controls.Add(this.btnTripManage);
+            this.ManageContainer.Controls.Add(this.button1);
+            this.ManageContainer.Location = new System.Drawing.Point(3, 109);
+            this.ManageContainer.MaximumSize = new System.Drawing.Size(200, 230);
+            this.ManageContainer.MinimumSize = new System.Drawing.Size(200, 40);
+            this.ManageContainer.Name = "ManageContainer";
+            this.ManageContainer.Size = new System.Drawing.Size(200, 230);
+            this.ManageContainer.TabIndex = 13;
             // 
             // btnManage
             // 
@@ -78,23 +143,6 @@
             this.btnManage.UseVisualStyleBackColor = false;
             this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
-            // btnClientManage
-            // 
-            this.btnClientManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(82)))), ((int)(((byte)(100)))));
-            this.btnClientManage.FlatAppearance.BorderSize = 0;
-            this.btnClientManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientManage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientManage.ForeColor = System.Drawing.Color.White;
-            this.btnClientManage.Image = ((System.Drawing.Image)(resources.GetObject("btnClientManage.Image")));
-            this.btnClientManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientManage.Location = new System.Drawing.Point(0, 84);
-            this.btnClientManage.Name = "btnClientManage";
-            this.btnClientManage.Size = new System.Drawing.Size(200, 30);
-            this.btnClientManage.TabIndex = 6;
-            this.btnClientManage.Text = "Clients Manager";
-            this.btnClientManage.UseVisualStyleBackColor = false;
-            this.btnClientManage.Click += new System.EventHandler(this.btnClientManage_Click);
-            // 
             // btnEmployeerManage
             // 
             this.btnEmployeerManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(82)))), ((int)(((byte)(100)))));
@@ -111,23 +159,6 @@
             this.btnEmployeerManage.Text = "   Employeer Manager";
             this.btnEmployeerManage.UseVisualStyleBackColor = false;
             this.btnEmployeerManage.Click += new System.EventHandler(this.btnEmployeerManage_Click);
-            // 
-            // btnTripManage
-            // 
-            this.btnTripManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(82)))), ((int)(((byte)(100)))));
-            this.btnTripManage.FlatAppearance.BorderSize = 0;
-            this.btnTripManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTripManage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTripManage.ForeColor = System.Drawing.Color.White;
-            this.btnTripManage.Image = ((System.Drawing.Image)(resources.GetObject("btnTripManage.Image")));
-            this.btnTripManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTripManage.Location = new System.Drawing.Point(0, 120);
-            this.btnTripManage.Name = "btnTripManage";
-            this.btnTripManage.Size = new System.Drawing.Size(200, 30);
-            this.btnTripManage.TabIndex = 8;
-            this.btnTripManage.Text = "Trip Manager";
-            this.btnTripManage.UseVisualStyleBackColor = false;
-            this.btnTripManage.Click += new System.EventHandler(this.btnTripManage_Click);
             // 
             // btnAccoutnsManage
             // 
@@ -146,6 +177,40 @@
             this.btnAccoutnsManage.UseVisualStyleBackColor = false;
             this.btnAccoutnsManage.Click += new System.EventHandler(this.btnAccoutnsManage_Click);
             // 
+            // btnClientManage
+            // 
+            this.btnClientManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(82)))), ((int)(((byte)(100)))));
+            this.btnClientManage.FlatAppearance.BorderSize = 0;
+            this.btnClientManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientManage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientManage.ForeColor = System.Drawing.Color.White;
+            this.btnClientManage.Image = ((System.Drawing.Image)(resources.GetObject("btnClientManage.Image")));
+            this.btnClientManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientManage.Location = new System.Drawing.Point(0, 84);
+            this.btnClientManage.Name = "btnClientManage";
+            this.btnClientManage.Size = new System.Drawing.Size(200, 30);
+            this.btnClientManage.TabIndex = 6;
+            this.btnClientManage.Text = "Clients Manager";
+            this.btnClientManage.UseVisualStyleBackColor = false;
+            this.btnClientManage.Click += new System.EventHandler(this.btnClientManage_Click);
+            // 
+            // btnTripManage
+            // 
+            this.btnTripManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(82)))), ((int)(((byte)(100)))));
+            this.btnTripManage.FlatAppearance.BorderSize = 0;
+            this.btnTripManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTripManage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTripManage.ForeColor = System.Drawing.Color.White;
+            this.btnTripManage.Image = ((System.Drawing.Image)(resources.GetObject("btnTripManage.Image")));
+            this.btnTripManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTripManage.Location = new System.Drawing.Point(0, 120);
+            this.btnTripManage.Name = "btnTripManage";
+            this.btnTripManage.Size = new System.Drawing.Size(200, 30);
+            this.btnTripManage.TabIndex = 8;
+            this.btnTripManage.Text = "Trip Manager";
+            this.btnTripManage.UseVisualStyleBackColor = false;
+            this.btnTripManage.Click += new System.EventHandler(this.btnTripManage_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(82)))), ((int)(((byte)(100)))));
@@ -163,52 +228,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnCompaniesManage_Click);
             // 
-            // sidebar
-            // 
-            this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.sidebar.Controls.Add(this.panel1);
-            this.sidebar.Controls.Add(this.ManageContainer);
-            this.sidebar.Controls.Add(this.btnLogout);
-            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebar.Location = new System.Drawing.Point(0, 0);
-            this.sidebar.MaximumSize = new System.Drawing.Size(200, 557);
-            this.sidebar.MinimumSize = new System.Drawing.Size(47, 557);
-            this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(200, 557);
-            this.sidebar.TabIndex = 11;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.menubutton);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 12;
-            // 
-            // menubutton
-            // 
-            this.menubutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menubutton.Image = ((System.Drawing.Image)(resources.GetObject("menubutton.Image")));
-            this.menubutton.Location = new System.Drawing.Point(9, 35);
-            this.menubutton.Name = "menubutton";
-            this.menubutton.Size = new System.Drawing.Size(31, 30);
-            this.menubutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.menubutton.TabIndex = 12;
-            this.menubutton.TabStop = false;
-            this.menubutton.Click += new System.EventHandler(this.menubutton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(46, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 25);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Menu";
-            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
@@ -218,7 +237,7 @@
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(3, 395);
+            this.btnLogout.Location = new System.Drawing.Point(3, 345);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(200, 30);
             this.btnLogout.TabIndex = 12;
@@ -231,26 +250,32 @@
             this.sidebarTimer.Interval = 10;
             this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
             // 
-            // ManageContainer
-            // 
-            this.ManageContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ManageContainer.Controls.Add(this.btnManage);
-            this.ManageContainer.Controls.Add(this.btnEmployeerManage);
-            this.ManageContainer.Controls.Add(this.btnAccoutnsManage);
-            this.ManageContainer.Controls.Add(this.btnClientManage);
-            this.ManageContainer.Controls.Add(this.btnTripManage);
-            this.ManageContainer.Controls.Add(this.button1);
-            this.ManageContainer.Location = new System.Drawing.Point(3, 109);
-            this.ManageContainer.MaximumSize = new System.Drawing.Size(200, 230);
-            this.ManageContainer.MinimumSize = new System.Drawing.Size(200, 40);
-            this.ManageContainer.Name = "ManageContainer";
-            this.ManageContainer.Size = new System.Drawing.Size(200, 230);
-            this.ManageContainer.TabIndex = 13;
-            // 
             // ManagerTimer
             // 
             this.ManagerTimer.Interval = 10;
             this.ManagerTimer.Tick += new System.EventHandler(this.ManagerTimer_Tick);
+            // 
+            // bar
+            // 
+            this.bar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.bar.Controls.Add(this.pictureBox1);
+            this.bar.Location = new System.Drawing.Point(200, 0);
+            this.bar.Name = "bar";
+            this.bar.Size = new System.Drawing.Size(800, 32);
+            this.bar.TabIndex = 0;
+            this.bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bar_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(762, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 29);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FRMAdmin
             // 
@@ -258,16 +283,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(999, 557);
+            this.Controls.Add(this.bar);
             this.Controls.Add(this.mainpanel);
+            this.Controls.Add(this.sidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FRMAdmin";
             this.Text = "Administrator";
-            this.mainpanel.ResumeLayout(false);
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubutton)).EndInit();
             this.ManageContainer.ResumeLayout(false);
+            this.bar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -288,5 +316,7 @@
         private System.Windows.Forms.Timer sidebarTimer;
         private System.Windows.Forms.Panel ManageContainer;
         private System.Windows.Forms.Timer ManagerTimer;
+        private System.Windows.Forms.Panel bar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
