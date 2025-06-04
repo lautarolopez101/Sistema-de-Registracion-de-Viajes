@@ -128,7 +128,7 @@ namespace Sistema_de_Registracion_de_Viajes
             if (i == 0)
             {
                 // Open Admin Form
-                FRMClient adminForm = new FRMAdmin();
+                FRMAdmin adminForm = new FRMAdmin();
                 adminForm.Show();
             }
             else
@@ -142,7 +142,7 @@ namespace Sistema_de_Registracion_de_Viajes
                 else if (i == 3)
                 {
                     // Open Client Form
-                    FRMClient clientForm = new FRMClient();
+                    FRMClilent clientForm = new FRMClilent();
                     clientForm.Show();
                 }
             }

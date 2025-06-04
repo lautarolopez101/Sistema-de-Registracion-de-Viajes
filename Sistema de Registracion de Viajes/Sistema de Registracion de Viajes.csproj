@@ -82,11 +82,11 @@
     <Compile Include="Admin\FRMTripManager.Designer.cs">
       <DependentUpon>FRMTripManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\FRMClient.cs">
+    <Compile Include="Client\FRMClilent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client\FRMClient.Designer.cs">
-      <DependentUpon>FRMClient.cs</DependentUpon>
+    <Compile Include="Client\FRMClilent.Designer.cs">
+      <DependentUpon>FRMClilent.cs</DependentUpon>
     </Compile>
     <Compile Include="Empresas\CLSEmpresas.cs" />
     <Compile Include="Empresas\FRMLista_Empresas.cs">
@@ -135,9 +135,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin\FRMAdmin.resx">
       <DependentUpon>FRMAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Client\FRMClient.resx">
-      <DependentUpon>FRMClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employeer\FRMEmployeer.resx">
       <DependentUpon>FRMEmployeer.cs</DependentUpon>
@@ -196,5 +193,6 @@
   <ItemGroup>
     <None Include="Resources\MySpace.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
