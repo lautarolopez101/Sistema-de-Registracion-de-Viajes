@@ -22,82 +22,59 @@ namespace Sistema_de_Registracion_de_Viajes
         {
             try
             {
-                if(
-                     !string.IsNullOrEmpty(txtAddress.Text) || !string.IsNullOrEmpty(txtUser.Text) || !string.IsNullOrEmpty(txtPassword.Text)
-                      || !string.IsNullOrEmpty(txtName.Text) || !string.IsNullOrEmpty(txtLastName.Text) || !string.IsNullOrEmpty(txtDNI.Text)
-                        || !string.IsNullOrEmpty(txtMail.Text) || !string.IsNullOrEmpty(txtPassword_Confirmed.Text) || !string.IsNullOrEmpty(txtPhone.Text)
-
-                    )
+                if (!string.IsNullOrEmpty(txtAddress.Text) &&
+                    !string.IsNullOrEmpty(txtUser.Text) &&
+                    !string.IsNullOrEmpty(txtPassword.Text) &&
+                    !string.IsNullOrEmpty(txtName.Text) &&
+                    !string.IsNullOrEmpty(txtLastName.Text) &&
+                    !string.IsNullOrEmpty(txtDNI.Text) &&
+                    !string.IsNullOrEmpty(txtMail.Text) &&
+                    !string.IsNullOrEmpty(txtPassword_Confirmed.Text) &&
+                    !string.IsNullOrEmpty(txtPhone.Text))
                 {
-
-                    if(txtPassword.Text == txtPassword_Confirmed.Text)
+                    if (txtPassword.Text == txtPassword_Confirmed.Text)
                     {
-                        // Here you would typically save the user data to a database or file
+                        CLSPerson persona = null;
+                        string rolSeleccionado = CMBXRol.SelectedItem.ToString();
 
-                    string rol = CMBXRol.SelectedItem.ToString();
-
-                        if (rol == "Administrator")
+                        switch (rolSeleccionado)
                         {
-                            CLSAdministrador admin = new CLSAdministrador(0,txtUser.Text,txtPassword.Text,
-                                txtName.Text, txtLastName.Text, int.Parse(txtDNI.Text),dateTimePicker1.Value, //Create User 
-                                txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text 
-                                );
-                            using(StreamWriter sw = new StreamWriter("users.csv", true))
+                            case "Administrator":
+                                persona = new CLSAdministrador(0, txtUser.Text, txtPassword.Text, txtName.Text, txtLastName.Text,
+                                    int.Parse(txtDNI.Text), dateTimePicker1.Value, txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text);
+                                break;
+
+                            case "Employeer":
+                                persona = new CLSEmployeer(1, txtUser.Text, txtPassword.Text, txtName.Text, txtLastName.Text,
+                                    int.Parse(txtDNI.Text), dateTimePicker1.Value, txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text);
+                                break;
+
+                            case "Client":
+                                persona = new CLSClient(2, txtUser.Text, txtPassword.Text, txtName.Text, txtLastName.Text,
+                                    int.Parse(txtDNI.Text), dateTimePicker1.Value, txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text);
+                                break;
+                        }
+
+                        if (persona != null)
+                        {
+                            using (StreamWriter sw = new StreamWriter("..\\..\\Archivos\\users.txt", true))
                             {
-                                sw.WriteLine($"{admin.Rol},{admin.User},{admin.Password},{admin.Name},{admin.LastName},{admin.DNI}," +
-                                    $"{admin.Fecha_Nacimiento.ToShortDateString()},{admin.Address},{admin.Phone},{admin.Mail}");
+                                sw.WriteLine($"{persona.Rol},{persona.User},{persona.Password},{persona.Name},{persona.LastName},{persona.DNI}," +
+                                             $"{persona.Fecha_Nacimiento:yyyy-MM-dd},{persona.Address},{persona.Phone},{persona.Mail}");
                             }
-                            MessageBox.Show("You have been registered as an Administrator", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            MessageBox.Show($"You have been registered as a {rolSeleccionado}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
-                        else
-                        {
-                            if (rol == "Employeer")
-                            {
-
-                                CLSEmployeer employeer = new CLSEmployeer(1,txtUser.Text, txtPassword.Text,
-                                    txtName.Text, txtLastName.Text, int.Parse(txtDNI.Text), dateTimePicker1.Value,  //Create User 
-                                    txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text
-                                    );
-                                using (StreamWriter sw = new StreamWriter("users.csv", true))
-                                {
-                                    sw.WriteLine($"{employeer.Rol},{employeer.User},{employeer.Password},{employeer.Name},{employeer.LastName},{employeer.DNI}," +
-                                        $"{employeer.Fecha_Nacimiento.ToShortDateString()},{employeer.Address},{employeer.Phone},{employeer.Mail}");
-                                }
-
-                                MessageBox.Show("You have been registered as an Employeer", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.Close();
-                            }
-                            else if(rol == "Client")
-                            {
-
-                                CLSClient client = new CLSClient(2,txtUser.Text, txtPassword.Text,
-                                    txtName.Text, txtLastName.Text, int.Parse(txtDNI.Text), dateTimePicker1.Value,   //Create User 
-                                    txtAddress.Text, int.Parse(txtPhone.Text), txtMail.Text
-                                    );
-
-                                using (StreamWriter sw = new StreamWriter("users.csv", true))
-                                {
-                                    sw.WriteLine($"{client.Rol},{client.User},{client.Password},{client.Name},{client.LastName},{client.DNI}," +
-                                        $"{client.Fecha_Nacimiento.ToShortDateString()},{client.Address},{client.Phone},{client.Mail}");
-                                }
-                                    MessageBox.Show("You have been registered as an Client", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    this.Close();
-
-                            }
-
-                        }
-
-
                     }
                     else
                     {
-                        MessageBox.Show("Password aren't the same, Check again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Passwords aren't the same. Check again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please, fill all the fields","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Please, fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

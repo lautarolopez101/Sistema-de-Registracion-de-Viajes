@@ -15,6 +15,11 @@ namespace Sistema_de_Registracion_de_Viajes
         public string Address { get; set; }
         public int Phone { get; set; }
         public string Mail { get; set; }
+
+        public int Rol { get; set; }
+        public string User { get; set; }
+        public string Password { get; set; }
+
         private int Edad_;
 
         public int Edad
@@ -27,8 +32,12 @@ namespace Sistema_de_Registracion_de_Viajes
             
 
         }
-        public CLSPerson(string name, string lastname, int dni, DateTime fecha_nacimiento, string address, int phone, string mail)
+        public CLSPerson(int rol, string user, string password, string name, string lastname, int dni,
+                         DateTime fecha_nacimiento, string address, int phone, string mail)
         {
+            Rol = rol;
+            User = user;
+            Password = password;
             Name = name;
             LastName = lastname;
             DNI = dni;

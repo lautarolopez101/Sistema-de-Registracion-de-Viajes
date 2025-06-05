@@ -32,8 +32,9 @@ namespace Sistema_de_Registracion_de_Viajes
             
 
         }
-        public CLSClient(int rol, string user, string password, string name, string lastname, int dni, DateTime fechaNacimiento, string address, int phone, string mail)
-        : base(name, lastname, dni, fechaNacimiento, address, phone, mail)
+        public CLSClient(int rol, string user, string password, string name, string lastname, 
+            int dni, DateTime fechaNacimiento, string address, int phone, string mail)
+        : base(rol, user, password, name, lastname, dni, fechaNacimiento, address, phone, mail)
         {
             User = user;
             Password = password;

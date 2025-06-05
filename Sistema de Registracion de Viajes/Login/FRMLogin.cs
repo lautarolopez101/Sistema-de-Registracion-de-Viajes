@@ -59,57 +59,49 @@ namespace Sistema_de_Registracion_de_Viajes
         {
             try
             {
-                if(!string.IsNullOrEmpty(txtPassword.Text) || !string.IsNullOrEmpty(txtUser.Text))
+                if (!string.IsNullOrEmpty(txtUser.Text) && !string.IsNullOrEmpty(txtPassword.Text))
                 {
                     bool userExists = false;
-                    foreach (var line in File.ReadAllLines("users.csv"))
+
+                    foreach (var line in File.ReadAllLines("..\\..\\Archivos\\users.txt").Skip(1))
                     {
                         var data = line.Split(',');
-                        int rol = int.Parse(data[0]); // Assuming the first column is the role as an integer
+
+                        int rol = int.Parse(data[0]);
+
                         if (data[1] == txtUser.Text && data[2] == txtPassword.Text)
                         {
                             if (rol == 0)
                             {
-                                //Admin
                                 CurrentAdmin = new CLSAdministrador(0, data[1], data[2], data[3], data[4],
                                     int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
                                 CLSAdministrador.loginadmin(CurrentAdmin);
-                                userExists = true;
                                 FormShow(rol);
-                                break;
                             }
-                            else
+                            
+                            else if (rol == 1)
                             {
-                                if (rol == 1)
-                                {
-                                    //Employeer
-                                    CurrentEmployeer = new CLSEmployeer(1, data[1], data[2], data[3], data[4],
-                                        int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
-                                    CLSEmployeer.loginemp(CurrentEmployeer);
-                                    userExists = true;
-                                    FormShow(rol);
-                                    break;
-                                }
-                                else if (rol == 2)
-                                {
-                                    //Client
-                                    CurrentClient = new CLSClient(2, data[1], data[2], data[3], data[4],
-                                        int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
-                                    CLSClient.loginclient(CurrentClient);
-                                    userExists = true;
-                                    FormShow(rol);
-                                    break;
-                                }
+                                CurrentClient = new CLSClient(2, data[1], data[2], data[3], data[4],
+                                    int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                CLSClient.loginclient(CurrentClient);
+                                FormShow(rol);
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            else if (rol == 2)
+                            {
+                                CurrentEmployeer = new CLSEmployeer(1, data[1], data[2], data[3], data[4],
+                                    int.Parse(data[5]), DateTime.Parse(data[6]), data[7], int.Parse(data[8]), data[9]);
+                                CLSEmployeer.loginemp(CurrentEmployeer);
+                                FormShow(rol);
+                            }
+                            userExists = true;
+                            break; // Salir del loop si encontró usuario válido
                         }
                     }
+
                     if (!userExists)
                     {
-                        MessageBox.Show("User can't be found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -117,9 +109,10 @@ namespace Sistema_de_Registracion_de_Viajes
                     MessageBox.Show("Please fill in all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -133,13 +126,13 @@ namespace Sistema_de_Registracion_de_Viajes
             }
             else
             {
-                if (i == 2)
+                if (i == 1)
                 {
                     // Open Employeer Form
                     FRMEmployeer employeerForm = new FRMEmployeer();
                     employeerForm.Show();
                 }
-                else if (i == 3)
+                else if (i == 2)
                 {
                     // Open Client Form
                     FRMClilent clientForm = new FRMClilent();
