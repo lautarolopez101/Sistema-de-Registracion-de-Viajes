@@ -63,7 +63,7 @@ namespace Sistema_de_Registracion_de_Viajes
                 {
                     bool userExists = false;
 
-                    foreach (var line in File.ReadAllLines("..\\..\\Archivos\\users.txt").Skip(1))
+                    foreach (var line in File.ReadAllLines("..\\..\\Archivos\\users.csv").Skip(1))
                     {
                         var data = line.Split(',');
 

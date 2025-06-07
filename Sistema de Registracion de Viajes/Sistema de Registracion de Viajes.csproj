@@ -136,6 +136,9 @@
     <EmbeddedResource Include="Admin\FRMAdmin.resx">
       <DependentUpon>FRMAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client\FRMClilent.resx">
+      <DependentUpon>FRMClilent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employeer\FRMEmployeer.resx">
       <DependentUpon>FRMEmployeer.cs</DependentUpon>
     </EmbeddedResource>

@@ -57,7 +57,7 @@ namespace Sistema_de_Registracion_de_Viajes
 
                         if (persona != null)
                         {
-                            using (StreamWriter sw = new StreamWriter("..\\..\\Archivos\\users.txt", true))
+                            using (StreamWriter sw = new StreamWriter("..\\..\\Archivos\\users.csv", true))
                             {
                                 sw.WriteLine($"{persona.Rol},{persona.User},{persona.Password},{persona.Name},{persona.LastName},{persona.DNI}," +
                                              $"{persona.Fecha_Nacimiento:yyyy-MM-dd},{persona.Address},{persona.Phone},{persona.Mail}");
