@@ -39,7 +39,7 @@ namespace SistemaDeViajes_v2
             return $"{IdReserva};{IdCliente};{IdViaje};{AsientosSeleccionados};{CantidadAdultos};{CantidadNinios};{Estado};{FechaReserva:yyyy-MM-dd};{ImporteTotal}";
         }
 
-        public static CLSReserva FromString(string linea)
+        public  CLSReserva FromString(string linea)
         {
             string[] partes = linea.Split(';');
             return new CLSReserva
@@ -54,6 +54,14 @@ namespace SistemaDeViajes_v2
                 FechaReserva = DateTime.Parse(partes[7]),
                 ImporteTotal = int.Parse(partes[8])
             };
+        }
+
+        public string ToFileLine()
+        {
+            // Asegúrate de que el orden de los campos coincida con el orden en que los lees
+            // en FileReservaRepository.GetAllReservas()
+            // Y que el formato de fecha sea consistente (ej. "yyyy-MM-dd HH:mm:ss")
+            return $"{IdReserva};{IdCliente};{IdViaje};{AsientosSeleccionados};{CantidadAdultos};{CantidadNinios};{Estado};{FechaReserva:yyyy-MM-dd};{ImporteTotal}";
         }
     }
 }

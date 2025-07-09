@@ -12,9 +12,14 @@ namespace SistemaDeViajes_v2
 {
     public partial class FormLogin : Form
     {
+        
+
+        private IClienteRepositorio _clienteRepositorio;
         public FormLogin()
         {
             InitializeComponent();
+
+            _clienteRepositorio = new ArchivoClienteRepositorio();
         }
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
@@ -28,53 +33,59 @@ namespace SistemaDeViajes_v2
                 return;
             }
 
-            List<CLSCliente> clientes = ObtenerClientesDesdeArchivo("clientes.txt");
+            List<CLSCliente> clientes = new List<CLSCliente>();
+            try
+            {
+                clientes = _clienteRepositorio.GetAllClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar clientes: {ex.Message}", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            CLSCliente clienteEncontrado = clientes.FirstOrDefault(c =>
-            c.Email.Equals(email,StringComparison.OrdinalIgnoreCase) && c.Password == password);
+            CLSCliente clienteEncontrado = clientes.FirstOrDefault(c => c.Mail.Equals(email, StringComparison.OrdinalIgnoreCase) && c.Password == password);
 
             if (clienteEncontrado != null)
             {
-                MessageBox.Show($"Bienvenido {clienteEncontrado.Nombre} {clienteEncontrado.Apellido}");
-
-                FormMenu menu = new FormMenu(clienteEncontrado);
-                menu.Show();
+                MessageBox.Show($"Bienvenido Cliente: {clienteEncontrado.Nombre} {clienteEncontrado.Apellido}");
+                FormMenu menuCliente = new FormMenu(clienteEncontrado); // O un FormMenu específico para clientes
+                menuCliente.Show();
                 this.Hide();
+                return; // Cliente encontrado, salimos del método
             }
-            else 
+
+            List<CLSEmpleado> empleados = new List<CLSEmpleado>();
+            try
             {
-                MessageBox.Show("Correo o contraseña incorrectos");
+                empleados = _clienteRepositorio.GetAllClientes();
             }
+            catch (Exception ex)
+            {
+                // Manejo de error si no se pueden cargar los empleados
+                MessageBox.Show($"Error al cargar empleados: {ex.Message}", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            CLSEmpleado empleadoEncontrado = empleados.FirstOrDefault(emp =>
+                emp.Mail.Equals(email, StringComparison.OrdinalIgnoreCase) && emp.Password == password);
+
+            if (empleadoEncontrado != null)
+            {
+                MessageBox.Show($"Bienvenido Empleado: {empleadoEncontrado.Nombre} {empleadoEncontrado.Apellido} ({empleadoEncontrado.Puesto})");
+                FormMenuEmpleado menuEmpleado = new FormMenuEmpleado(empleadoEncontrado); // Un FormMenu diferente para empleados
+                menuEmpleado.Show();
+                this.Hide();
+                return; // Empleado encontrado, salimos del método
+            }
+            else
+            {
+                // Si no se encontró ni como cliente ni como empleado
+                MessageBox.Show("Correo o contraseña incorrectos.", "Error de Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
-        private List<CLSCliente> ObtenerClientesDesdeArchivo(string rutaArchivo)
-        {
-            List<CLSCliente> lista = new List<CLSCliente>();
 
-            if (File.Exists(rutaArchivo))
-            {
-                string[] lineas = File.ReadAllLines(rutaArchivo);
-
-                for (int i = 1; i < lineas.Length; i++)
-                {
-                    string[] partes = lineas[i].Split(',');
-
-                    if (partes.Length == 6)
-                    {
-                        CLSCliente cliente = new CLSCliente
-                        {
-                            Id = int.Parse(partes[0]),
-                            Dni = partes[1],
-                            Nombre = partes[2],
-                            Apellido = partes[3],
-                            Email = partes[4],
-                            Password = partes[5],
-                        };
-                        lista.Add(cliente);
-                    }
-                }
-            }
-            return lista;
-        }
     }
 }
