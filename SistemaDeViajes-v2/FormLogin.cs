@@ -15,11 +15,13 @@ namespace SistemaDeViajes_v2
         
 
         private IClienteRepositorio _clienteRepositorio;
+        private IEmpleadoRepositorio _empleadoRepositorio;
         public FormLogin()
         {
             InitializeComponent();
 
             _clienteRepositorio = new ArchivoClienteRepositorio();
+            _empleadoRepositorio = new ArchivoEmpleadoRepositorio();
         }
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
@@ -58,7 +60,7 @@ namespace SistemaDeViajes_v2
             List<CLSEmpleado> empleados = new List<CLSEmpleado>();
             try
             {
-                empleados = _clienteRepositorio.GetAllClientes();
+                empleados = _empleadoRepositorio.GetAllEmpleados();
             }
             catch (Exception ex)
             {
@@ -67,12 +69,11 @@ namespace SistemaDeViajes_v2
                 return;
             }
 
-            CLSEmpleado empleadoEncontrado = empleados.FirstOrDefault(emp =>
-                emp.Mail.Equals(email, StringComparison.OrdinalIgnoreCase) && emp.Password == password);
+            CLSEmpleado empleadoEncontrado = empleados.FirstOrDefault(emp =>emp.Mail.Equals(email, StringComparison.OrdinalIgnoreCase) && emp.Password == password);
 
             if (empleadoEncontrado != null)
             {
-                MessageBox.Show($"Bienvenido Empleado: {empleadoEncontrado.Nombre} {empleadoEncontrado.Apellido} ({empleadoEncontrado.Puesto})");
+                MessageBox.Show($"Bienvenido Empleado: {empleadoEncontrado.Nombre} {empleadoEncontrado.Apellido}");
                 FormMenuEmpleado menuEmpleado = new FormMenuEmpleado(empleadoEncontrado); // Un FormMenu diferente para empleados
                 menuEmpleado.Show();
                 this.Hide();
