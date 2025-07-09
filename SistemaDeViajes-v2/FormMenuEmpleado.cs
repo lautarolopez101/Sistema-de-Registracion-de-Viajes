@@ -12,11 +12,12 @@ namespace SistemaDeViajes_v2
 {
     public partial class FormMenuEmpleado : Form
     {
+        private CLSEmpleado empleadologueado;
         public FormMenuEmpleado(CLSEmpleado empleado)
         {
             InitializeComponent();
 
-
+            empleadologueado = empleado;
         }
     }
 }

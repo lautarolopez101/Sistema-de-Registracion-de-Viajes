@@ -104,7 +104,7 @@ namespace SistemaDeViajes_v2
         {
             // Lógica que querés que pase cuando se hace clic en el botón.
             BotonActivado(sender, RGBColors.color2);
-            OpenChildForm(new FormMisReservas(clienteLogueado.Id));
+            OpenChildForm(new FormMisReservas(clienteLogueado.ID));
         }
 
         private void BtnMisVuelos_Click(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace SistemaDeViajes_v2
             // Lógica que querés que pase cuando se hace clic en el botón.
             BotonActivado(sender, RGBColors.color4);
             FormReservarVuelo formReserva = new FormReservarVuelo();
-            formReserva.IdClienteLogueado = clienteLogueado.Id; // pasás el ID
+            formReserva.IdClienteLogueado = clienteLogueado.ID; // pasás el ID
             OpenChildForm(formReserva);
 
         }
