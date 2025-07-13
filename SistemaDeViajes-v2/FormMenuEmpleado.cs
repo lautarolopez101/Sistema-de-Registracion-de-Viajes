@@ -13,11 +13,22 @@ namespace SistemaDeViajes_v2
     public partial class FormMenuEmpleado : Form
     {
         private CLSEmpleado empleadologueado;
+        private Form currentChildForm;
+
         public FormMenuEmpleado(CLSEmpleado empleado)
         {
             InitializeComponent();
 
             empleadologueado = empleado;
         }
+
+        private void btnRegistrarCliente_Click(object sender, EventArgs e)
+        {
+            FRMRegistrarCliente nuevoform = new FRMRegistrarCliente();
+            nuevoform.Show();
+            this.Hide();
+        }
+
+        
     }
 }
