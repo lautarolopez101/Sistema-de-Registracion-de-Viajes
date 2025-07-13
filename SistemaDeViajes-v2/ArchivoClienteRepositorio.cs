@@ -9,7 +9,7 @@ namespace SistemaDeViajes_v2
     public class ArchivoClienteRepositorio : IClienteRepositorio
     {
 
-        private readonly string _filePath = "Clientes1.txt";
+        private readonly string _filePath = "clientes.txt";
 
         // Implementación del método GetAllClientes de la interfaz IClienteRepository
         public List<CLSCliente> GetAllClientes()
