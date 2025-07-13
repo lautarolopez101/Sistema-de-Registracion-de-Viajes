@@ -37,7 +37,7 @@ namespace SistemaDeViajes_v2
                             continue;
                         }
 
-                        int idLeido=0, telefonoleido=0, dnileido=0;
+                        int idLeido = 0, telefonoleido = 0, dnileido = 0;
                         bool idOk = int.TryParse(vec[4].Trim(), out idLeido); // Asumiendo que el ID está en el índice 4
                         bool telefonoOk = int.TryParse(vec[5].Trim(), out telefonoleido);
                         bool dniOk = int.TryParse(vec[5].Trim(), out dnileido);
@@ -49,9 +49,9 @@ namespace SistemaDeViajes_v2
                                 vec[0].Trim(), // Nombre
                                 vec[1].Trim(), // Apellido
                                 vec[2].Trim(), // Email
-                                telefonoleido, 
+                                telefonoleido,
                                 vec[4].Trim(), // Password
-                                dnileido, 
+                                dnileido,
                                 idLeido
 
                             );
@@ -69,6 +69,23 @@ namespace SistemaDeViajes_v2
                 throw new Exception($"Error al cargar empleados desde el archivo: {ex.Message}", ex);
             }
             return empleados;
+        }
+
+
+        public void AddEmpleado(CLSEmpleado empleado)
+        {
+            try
+            {
+                using (StreamWriter sw = File.AppendText(_filePath))
+                {
+                    sw.WriteLine(empleado.ToFileLine());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al guardar el cliente en el archivo: {ex.Message}", ex);
+
+            }
         }
     }
 }

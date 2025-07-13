@@ -13,5 +13,10 @@ namespace SistemaDeViajes_v2
         {
             
         }
+
+        public string ToFileLine()
+        {
+            return $"{Nombre};{Apellido};{Mail};{Telefono};{Password};{DNI};{ID}";
+        }
     }
 }
