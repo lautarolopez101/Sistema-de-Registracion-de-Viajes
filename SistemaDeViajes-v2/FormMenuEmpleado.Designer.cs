@@ -35,9 +35,9 @@
             // 
             btnRegistrarCliente.Location = new Point(12, 92);
             btnRegistrarCliente.Name = "btnRegistrarCliente";
-            btnRegistrarCliente.Size = new Size(132, 23);
+            btnRegistrarCliente.Size = new Size(225, 23);
             btnRegistrarCliente.TabIndex = 0;
-            btnRegistrarCliente.Text = "Registrar Cliente";
+            btnRegistrarCliente.Text = "Alta,Baja y Modificacion de Clientes";
             btnRegistrarCliente.UseVisualStyleBackColor = true;
             btnRegistrarCliente.Click += btnRegistrarCliente_Click;
             // 

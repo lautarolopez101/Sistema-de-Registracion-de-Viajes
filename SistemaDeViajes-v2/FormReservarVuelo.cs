@@ -99,7 +99,7 @@ namespace SistemaDeViajes_v2
 
                 for (int i = 1; i < lineas.Length; i++)
                 {
-                    string[] datos = lineas[i].Split(',');
+                    string[] datos = lineas[i].Split(';');
 
                     if (datos.Length == 6)
                     {

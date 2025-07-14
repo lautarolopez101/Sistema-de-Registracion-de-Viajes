@@ -31,10 +31,12 @@ namespace SistemaDeViajes_v2
             _clienteRepositorio = new ArchivoClienteRepositorio();
 
             ActualizarClientes();
-
+            CargarClientesEnDataGridView();
 
             OnClientesUpdated += FRMClienteABM_OnClientesUpdated;
             OnErrorNotification += FRMClienteABM_OnErrorNotification;
+
+            txtIDCliente.ReadOnly = true;
         }
 
         private void FRMClienteABM_OnErrorNotification(string message, string caption, MessageBoxIcon icon)
@@ -51,6 +53,27 @@ namespace SistemaDeViajes_v2
             }
         }
 
+        private void CargarClientesEnDataGridView()
+        {
+            try
+            {
+                // Obtiene la lista de clientes del repositorio
+                List<CLSCliente> clientes = _clienteRepositorio.GetAllClientes();
+
+                dgvClientes.DataSource = clientes;
+
+
+                dgvClientes.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvClientes.AllowUserToAddRows = false; // Para evitar que el usuario añada filas directamente
+                dgvClientes.ReadOnly = true; // Para hacer el DataGridView de solo lectura
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los clientes: {ex.Message}", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Si hay un error, el DataGridView no muestra datos incorrectos
+                dgvClientes.DataSource = null;
+            }
+        }
         private void ActualizarClientes()
         {
             try
@@ -61,11 +84,11 @@ namespace SistemaDeViajes_v2
             catch (Exception ex)
             {
                 OnErrorNotification?.Invoke($"Error al cargar clientes: {ex.Message}", "Error de Carga", MessageBoxIcon.Error);
-                listaclientes.Clear(); // Asegúrate de que la lista esté vacía si hubo un error grave
+                listaclientes.Clear();
             }
             finally
             {
-                // Dispara el evento para actualizar la UI si es necesario
+                // Dispara el evento para actualizar la Interfaz de Usuario si es necesario
                 OnClientesUpdated?.Invoke(this, "Clientes");
             }
 
@@ -102,7 +125,7 @@ namespace SistemaDeViajes_v2
                 return;
             }
 
-            // Generar ID único para el nuevo cliente (aquí podrías mover esta lógica al repositorio si quisieras)
+            // Generar ID único para el nuevo cliente 
             int nuevoId = 1;
             if (listaclientes.Any())
             {
@@ -145,15 +168,17 @@ namespace SistemaDeViajes_v2
         {
 
             int idClienteAEliminar;
-            
-            if (dgvClientes.CurrentRow == null) 
-            { 
-                /* mensaje de error */ return; 
+
+            if (dgvClientes.CurrentRow == null)
+            {
+                OnErrorNotification?.Invoke("Por favor, seleccione un cliente de la lista para eliminar", "Ningún Cliente seleccionado", MessageBoxIcon.Error);
+                return;
             }
             CLSCliente clienteSeleccionado = dgvClientes.CurrentRow.DataBoundItem as CLSCliente;
-            if (clienteSeleccionado == null) 
-            { 
-                /* mensaje de error */ return; 
+            if (clienteSeleccionado == null)
+            {
+                OnErrorNotification?.Invoke("No se pudo obtener la información del cliente seleccionado. Por favor, intente nuevamente", "Error de selección", MessageBoxIcon.Error);
+                return;
             }
             idClienteAEliminar = clienteSeleccionado.ID;
 
@@ -165,15 +190,9 @@ namespace SistemaDeViajes_v2
                 return; // El usuario canceló la operación
             }
 
-            // 3. (CRÍTICO) Verificar si el cliente tiene reservas activas
-            // Esta lógica debe estar en tu formulario o en una clase de lógica de negocio,
-            // NO en el repositorio de clientes, ya que el repositorio de clientes no debería
-            // saber sobre reservas.
-            // Necesitarás un _reservaRepository o una función para leer el archivo de reservas.
-
-            if (ClienteTieneReservasActivas(idClienteAEliminar)) // <-- NECESITARÁS IMPLEMENTAR ESTE MÉTODO EN TU FORMULARIO
+            if (ClienteTieneReservasActivas(idClienteAEliminar))
             {
-                MessageBox.Show("No se puede eliminar el cliente ya que tiene reservas activas. Cancele las reservas primero.", "Error de Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                OnErrorNotification?.Invoke("No se puede eliminar el cliente ya que tiene reservas activas. Cancele las reservas primero.", "Error de Eliminación", MessageBoxIcon.Warning);
                 return;
             }
 
@@ -183,19 +202,38 @@ namespace SistemaDeViajes_v2
                 _clienteRepositorio.DeleteCliente(idClienteAEliminar);
                 MessageBox.Show($"Cliente con ID {idClienteAEliminar} eliminado exitosamente.", "Eliminación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-               ActualizarClientes(); 
+                ActualizarClientes();
             }
             catch (FileNotFoundException ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Archivo no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                OnErrorNotification?.Invoke($"Error: {ex.Message}", "Archivo no encontrado", MessageBoxIcon.Warning);
             }
             catch (InvalidOperationException ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Cliente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                OnErrorNotification?.Invoke($"Error: {ex.Message}", "Cliente no encontrado", MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al eliminar el cliente: {ex.Message}", "Error Inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                OnErrorNotification?.Invoke($"Ocurrio un error al eliminar al cliente: {ex.Message}", "Error Inesperado", MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvClientes_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                CLSCliente clienteSeleccionado = dgvClientes.Rows[e.RowIndex].DataBoundItem as CLSCliente;
+                if (clienteSeleccionado != null)
+                {
+                    // Cargar los datos del cliente seleccionado en los TextBoxes
+                    txtNombreCliente.Text = clienteSeleccionado.Nombre;
+                    txtApellidoCliente.Text = clienteSeleccionado.Apellido;
+                    txtMailCliente.Text = clienteSeleccionado.Mail;
+                    txtTelefonoCliente.Text = clienteSeleccionado.Telefono.ToString();
+                    txtPasswordCliente.Text = clienteSeleccionado.Password;
+                    txtDNICliente.Text = clienteSeleccionado.DNI.ToString();
+                    txtIDCliente.Text = clienteSeleccionado.ID.ToString();
+                }
             }
         }
 
@@ -213,14 +251,13 @@ namespace SistemaDeViajes_v2
                 List<CLSReserva> todasLasReservas = new List<CLSReserva>();
                 using (StreamReader sr = new StreamReader(reservasFilePath))
                 {
-                    // sr.ReadLine(); // Descomentar si hay cabecera en reservas.txt
+                    sr.ReadLine(); 
                     string linea;
                     while ((linea = sr.ReadLine()) != null)
                     {
                         if (string.IsNullOrWhiteSpace(linea)) continue;
                         try
                         {
-                            // Asegúrate de tener CLSReserva.CreaReservaDesdeLinea
                             todasLasReservas.Add(CLSReserva.CreaReservaDesdeLinea(linea));
                         }
                         catch (Exception ex)
@@ -237,16 +274,122 @@ namespace SistemaDeViajes_v2
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al verificar reservas activas: {ex.Message}", "Error de Verificación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Si hay un error al leer el archivo de reservas, es mejor asumir un problema.
                 throw new InvalidOperationException("No se pudo verificar el estado de las reservas debido a un error.", ex);
             }
         }
-        public enum EstadoReserva
+
+        private void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+            CLSCliente clienteAModificar;
+            int idModificar;
+
+            // *** PASO 1: VERIFICAR SI HAY UNA FILA SELECCIONADA EN EL DATAGRIDVIEW ***
+            if (dgvClientes.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Por favor, seleccione un cliente de la lista para modificar.",
+                    "Ningún Cliente Seleccionado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                return;
+            }
+
+            // *** PASO 2: OBTENER EL ID DEL CLIENTE SELECCIONADO DESDE EL TEXTBOX (que ya debería estar cargado por CellClick) ***
+            if (!int.TryParse(txtIDCliente.Text, out idModificar))
+            {
+                // Esto podría ocurrir si el txtID.Text se corrompió o no fue cargado correctamente
+                MessageBox.Show("No se pudo obtener el ID del cliente seleccionado. Por favor, recargue la lista e intente de nuevo.", "Error de ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            // *** PASO 3: VALIDAR LOS DEMÁS CAMPOS DE ENTRADA 
+            int telefonoModificado, dniModificado;
+
+            if (!int.TryParse(txtTelefonoCliente.Text, out telefonoModificado))
+            {
+                MessageBox.Show("El Teléfono no es válido. Debe ser un número.", "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!int.TryParse(txtDNICliente.Text, out dniModificado))
+            {
+                MessageBox.Show("El DNI no es válido. Debe ser un número.", "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtNombreCliente.Text) ||
+                string.IsNullOrWhiteSpace(txtApellidoCliente.Text) ||
+                string.IsNullOrWhiteSpace(txtMailCliente.Text) ||
+                string.IsNullOrWhiteSpace(txtPasswordCliente.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios (Nombre, Apellido, Mail, Password).", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            // *** PASO 4: CREAR EL OBJETO CLSCLIENTE CON LOS DATOS MODIFICADOS ***
+            // Usamos el idModificar que obtuvimos del txtID (que a su vez fue cargado por la selección del DGV)
+            clienteAModificar = new CLSCliente(
+                txtNombreCliente.Text.Trim(),
+                txtApellidoCliente.Text.Trim(),
+                txtMailCliente.Text.Trim(),
+                telefonoModificado,
+                txtPasswordCliente.Text.Trim(),
+                dniModificado,
+                idModificar // Este es el ID del cliente que se está modificando
+            );
+
+            DialogResult confirmacion = MessageBox.Show($"¿Está seguro de que desea guardar los cambios para el cliente con ID {clienteAModificar.ID}?", "Confirmar Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmacion == DialogResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                _clienteRepositorio.ModificarCliente(clienteAModificar);
+                MessageBox.Show($"Cliente con ID {clienteAModificar.ID} modificado exitosamente.", "Modificación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CargarClientesEnDataGridView(); // Recargar para ver los cambios
+                LimpiarCamposCliente(); // Limpiar los TextBoxes
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Archivo no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Cliente no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al modificar el cliente: {ex.Message}", "Error Inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LimpiarCamposCliente()
+        {
+            txtNombreCliente.Clear();
+            txtApellidoCliente.Clear();
+            txtMailCliente.Clear();
+            txtTelefonoCliente.Clear();
+            txtPasswordCliente.Clear();
+            txtDNICliente.Clear();
+            txtIDCliente.Clear();
+        }
+
+        
+    }
+
+    public enum EstadoReserva
         {
             Activa = 0, // O el valor que uses para reservas activas
             Confirmada = 1,
             Finalizada = 2,
             Cancelada = 3 // O los valores que uses para estados que NO son activos
         }
+
+
     }
-}
+
+

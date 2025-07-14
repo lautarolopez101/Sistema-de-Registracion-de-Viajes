@@ -44,6 +44,8 @@
             btnRegistrarCliente = new Button();
             brnEliminarCliente = new Button();
             btnModificarCliente = new Button();
+            txtIDCliente = new TextBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -95,7 +97,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(39, 370);
+            label6.Location = new Point(39, 355);
             label6.Name = "label6";
             label6.Size = new Size(27, 15);
             label6.TabIndex = 5;
@@ -138,7 +140,7 @@
             // 
             // txtDNICliente
             // 
-            txtDNICliente.Location = new Point(120, 370);
+            txtDNICliente.Location = new Point(120, 352);
             txtDNICliente.Name = "txtDNICliente";
             txtDNICliente.Size = new Size(100, 23);
             txtDNICliente.TabIndex = 11;
@@ -150,6 +152,7 @@
             dgvClientes.Name = "dgvClientes";
             dgvClientes.Size = new Size(492, 335);
             dgvClientes.TabIndex = 12;
+            dgvClientes.CellClick += dgvClientes_CellClick_1;
             // 
             // btnRegistrarCliente
             // 
@@ -179,12 +182,31 @@
             btnModificarCliente.TabIndex = 15;
             btnModificarCliente.Text = "Modificar";
             btnModificarCliente.UseVisualStyleBackColor = true;
+            btnModificarCliente.Click += btnModificarCliente_Click;
+            // 
+            // txtIDCliente
+            // 
+            txtIDCliente.Location = new Point(120, 391);
+            txtIDCliente.Name = "txtIDCliente";
+            txtIDCliente.Size = new Size(100, 23);
+            txtIDCliente.TabIndex = 16;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(42, 397);
+            label7.Name = "label7";
+            label7.Size = new Size(61, 15);
+            label7.TabIndex = 17;
+            label7.Text = "ID Cliente ";
             // 
             // FRMClienteABM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label7);
+            Controls.Add(txtIDCliente);
             Controls.Add(btnModificarCliente);
             Controls.Add(brnEliminarCliente);
             Controls.Add(btnRegistrarCliente);
@@ -226,5 +248,7 @@
         private Button btnRegistrarCliente;
         private Button brnEliminarCliente;
         private Button btnModificarCliente;
+        private TextBox txtIDCliente;
+        private Label label7;
     }
 }

@@ -79,21 +79,8 @@ namespace SistemaDeViajes_v2
             // Paso 1: Leer todos los clientes del archivo
             using (StreamReader sr = new StreamReader(_filePath))
             {
-                // Leer la primera línea para ver si es una cabecera
-                string firstLine = sr.ReadLine();
-                if (firstLine != null && firstLine.Contains("Nombre;") && firstLine.Contains("Apellido;")) // Ajusta esta lógica si tu cabecera es diferente
-                {
-                    header = firstLine; // Es una cabecera
-                }
-                else
-                {
-                    // Si no es cabecera, es un registro de cliente, así que lo volvemos a añadir a la lista
-                    if (firstLine != null)
-                    {
-                        try { todosLosClientes.Add(CreaClienteDesdeLinea(firstLine)); }
-                        catch (Exception ex) { Console.WriteLine($"Advertencia al parsear primera línea al eliminar: {ex.Message}"); }
-                    }
-                }
+                // Leer la primera línea para ver si es una cabecera y la guarda
+                header = sr.ReadLine();
 
                 // Leer el resto de las líneas
                 string linea;
@@ -126,13 +113,80 @@ namespace SistemaDeViajes_v2
             // Paso 3: Reescribir todo el archivo con la lista actualizada (sin el cliente eliminado)
             using (StreamWriter sw = new StreamWriter(_filePath, false)) // 'false' para sobrescribir el archivo
             {
-                // Si tenías una cabecera, escríbela de nuevo
+                // Si tenías una cabecera, la escribe denuevo 
                 if (header != null)
                 {
                     sw.WriteLine(header);
                 }
 
                 foreach (CLSCliente cliente in clientesActualizados)
+                {
+                    sw.WriteLine(cliente.ToFileLine());
+                }
+            }
+        }
+
+        public void ModificarCliente(CLSCliente clienteModificado)
+        {
+            if (clienteModificado == null)
+            {
+                throw new ArgumentNullException(nameof(clienteModificado), "El cliente a modificar no puede ser nulo.");
+            }
+
+            if (!File.Exists(_filePath))
+            {
+                throw new FileNotFoundException($"El archivo de clientes '{_filePath}' no se encontró para modificar.");
+            }
+
+            List<CLSCliente> todosLosClientes = new List<CLSCliente>();
+            string header = null;
+
+            // Paso 1: Leer todos los clientes del archivo
+            using (StreamReader sr = new StreamReader(_filePath))
+            {
+                // Manejo de cabecera (puedes simplificarlo si siempre hay cabecera como discutimos)
+                header = sr.ReadLine();
+
+                string linea;
+                while ((linea = sr.ReadLine()) != null)
+                {
+                    if (string.IsNullOrWhiteSpace(linea)) continue;
+                    try
+                    {
+                        todosLosClientes.Add(CreaClienteDesdeLinea(linea));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Advertencia: Error al parsear línea de cliente al modificar: '{linea}'. Detalles: {ex.Message}. Saltando línea.");
+                    }
+                }
+            }
+
+            // Paso 2: Encontrar el cliente a modificar y reemplazarlo
+            bool clienteEncontrado = false;
+            for (int i = 0; i < todosLosClientes.Count; i++)
+            {
+                if (todosLosClientes[i].ID == clienteModificado.ID)
+                {
+                    todosLosClientes[i] = clienteModificado; // Reemplazar el cliente existente con el modificado
+                    clienteEncontrado = true;
+                    break; // Salir del bucle una vez que el cliente es encontrado y modificado
+                }
+            }
+
+            if (!clienteEncontrado)
+            {
+                throw new InvalidOperationException($"No se encontró ningún cliente con el ID '{clienteModificado.ID}' para modificar.");
+            }
+
+            // Paso 3: Reescribir todo el archivo con la lista actualizada
+            using (StreamWriter sw = new StreamWriter(_filePath, false)) // 'false' para sobrescribir
+            {
+                if (header != null)
+                {
+                    sw.WriteLine(header);
+                }
+                foreach (CLSCliente cliente in todosLosClientes)
                 {
                     sw.WriteLine(cliente.ToFileLine());
                 }

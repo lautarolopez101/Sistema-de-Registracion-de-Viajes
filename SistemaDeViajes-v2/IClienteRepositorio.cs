@@ -11,8 +11,8 @@ namespace SistemaDeViajes_v2
         
             List<CLSCliente> GetAllClientes();
             void AddCliente(CLSCliente cliente);
-            
             void DeleteCliente(int idcliente);
-        
+            void ModificarCliente(CLSCliente clienteModificado);
+
     }
 }
