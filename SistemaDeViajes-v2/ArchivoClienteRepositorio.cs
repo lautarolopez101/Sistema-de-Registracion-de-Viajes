@@ -11,7 +11,6 @@ namespace SistemaDeViajes_v2
 
         private readonly string _filePath = "clientes.txt";
 
-        // Implementación del método GetAllClientes de la interfaz IClienteRepository
         public List<CLSCliente> GetAllClientes()
         {
             List<CLSCliente> listaclientes = new List<CLSCliente>();
@@ -22,43 +21,26 @@ namespace SistemaDeViajes_v2
                 using (StreamReader sr = new StreamReader(_filePath))
                 {
 
-                    sr.ReadLine();
+                    sr.ReadLine(); 
 
                     string linea;
                     while ((linea = sr.ReadLine()) != null)
                     {
                         if (string.IsNullOrWhiteSpace(linea)) continue;
 
-                        string[] vec = linea.Split(';');
-
-                        const int ExpectedFields = 7;
-                        if (vec.Length < ExpectedFields)
+                        try
                         {
-                            Console.WriteLine($"Advertencia (ArchivoClienteRepositorio): Línea de cliente incompleta o incorrecta (se esperaban {ExpectedFields} campos, se encontraron {vec.Length}): '{linea}'. Saltando esta línea.");
-                            continue;
-                        }
-
-                        int telefonoLeido = 0, dniLeido = 0, idLeido = 0;
-                        bool telefonoOk = int.TryParse(vec[3].Trim(), out telefonoLeido);
-                        bool dniOk = int.TryParse(vec[5].Trim(), out dniLeido);
-                        bool idOk = int.TryParse(vec[6].Trim(), out idLeido);
-
-                        if (telefonoOk && dniOk && idOk)
-                        {
-                            CLSCliente cliente = new CLSCliente(
-                                vec[0].Trim(),
-                                vec[1].Trim(),
-                                vec[2].Trim(),
-                                telefonoLeido,
-                                vec[4].Trim(),
-                                dniLeido,
-                                idLeido
-                            );
+                            // Llama al método privado del repositorio para parsear la línea
+                            CLSCliente cliente = CreaClienteDesdeLinea(linea);
                             listaclientes.Add(cliente);
                         }
-                        else
+                        catch (FormatException ex)
                         {
-                            Console.WriteLine($"Advertencia (FileClienteRepository): Error al convertir datos numéricos de cliente en la línea: '{linea}'.");
+                            Console.WriteLine($"Advertencia (ArchivoClienteRepositorio): Error de formato al leer línea: '{linea}'. Detalles: {ex.Message}. Saltando línea.");
+                        }
+                        catch (IndexOutOfRangeException ex)
+                        {
+                            Console.WriteLine($"Advertencia (ArchivoClienteRepositorio): Línea de cliente incompleta: '{linea}'. Detalles: {ex.Message}. Saltando línea.");
                         }
                     }
                 }
@@ -69,8 +51,6 @@ namespace SistemaDeViajes_v2
             }
             return listaclientes;
         }
-
-        // Implementación del método AddCliente de la interfaz IClienteRepository
         public void AddCliente(CLSCliente cliente)
         {
             try
@@ -84,6 +64,111 @@ namespace SistemaDeViajes_v2
             {
                 throw new Exception($"Error al guardar el cliente en el archivo: {ex.Message}", ex);
             }
+        }
+
+        public void DeleteCliente(int idCliente)
+        {
+            if (!File.Exists(_filePath))
+            {
+                throw new FileNotFoundException($"El archivo de clientes '{_filePath}' no se encontró para eliminar.");
+            }
+
+            List<CLSCliente> todosLosClientes = new List<CLSCliente>();
+            string header = null; // Para guardar la cabecera si existe
+
+            // Paso 1: Leer todos los clientes del archivo
+            using (StreamReader sr = new StreamReader(_filePath))
+            {
+                // Leer la primera línea para ver si es una cabecera
+                string firstLine = sr.ReadLine();
+                if (firstLine != null && firstLine.Contains("Nombre;") && firstLine.Contains("Apellido;")) // Ajusta esta lógica si tu cabecera es diferente
+                {
+                    header = firstLine; // Es una cabecera
+                }
+                else
+                {
+                    // Si no es cabecera, es un registro de cliente, así que lo volvemos a añadir a la lista
+                    if (firstLine != null)
+                    {
+                        try { todosLosClientes.Add(CreaClienteDesdeLinea(firstLine)); }
+                        catch (Exception ex) { Console.WriteLine($"Advertencia al parsear primera línea al eliminar: {ex.Message}"); }
+                    }
+                }
+
+                // Leer el resto de las líneas
+                string linea;
+                while ((linea = sr.ReadLine()) != null)
+                {
+                    if (string.IsNullOrWhiteSpace(linea)) continue;
+                    try
+                    {
+                        todosLosClientes.Add(CreaClienteDesdeLinea(linea));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Advertencia: Error al parsear línea de cliente al eliminar: '{linea}'. Detalles: {ex.Message}. Saltando línea.");
+                    }
+                }
+            }
+
+            // Paso 2: Filtrar la lista para excluir al cliente que se va a eliminar
+            List<CLSCliente> clientesActualizados = todosLosClientes
+                                                        .Where(c => c.ID != idCliente) // Filtra por el ID
+                                                        .ToList();
+
+            // Verificar si el cliente realmente fue encontrado y eliminado
+            if (clientesActualizados.Count == todosLosClientes.Count)
+            {
+                // Si las listas tienen el mismo tamaño, significa que el cliente con ese ID no se encontró
+                throw new InvalidOperationException($"No se encontró ningún cliente con el ID '{idCliente}' para eliminar.");
+            }
+
+            // Paso 3: Reescribir todo el archivo con la lista actualizada (sin el cliente eliminado)
+            using (StreamWriter sw = new StreamWriter(_filePath, false)) // 'false' para sobrescribir el archivo
+            {
+                // Si tenías una cabecera, escríbela de nuevo
+                if (header != null)
+                {
+                    sw.WriteLine(header);
+                }
+
+                foreach (CLSCliente cliente in clientesActualizados)
+                {
+                    sw.WriteLine(cliente.ToFileLine());
+                }
+            }
+        }
+
+        // Método privado auxiliar para crear un CLSCliente desde una línea de texto
+        private CLSCliente CreaClienteDesdeLinea(string linea)
+        {
+            string[] vec = linea.Split(';');
+            const int ExpectedFields = 7; // Nombre;Apellido;Mail;Telefono;Password;DNI;ID
+
+            if (vec.Length < ExpectedFields)
+            {
+                throw new FormatException($"Línea de cliente incompleta o incorrecta (se esperaban {ExpectedFields} campos, se encontraron {vec.Length}): '{linea}'.");
+            }
+
+            int telefonoLeido, dniLeido, idLeido;
+            bool telefonoOk = int.TryParse(vec[3].Trim(), out telefonoLeido);
+            bool dniOk = int.TryParse(vec[5].Trim(), out dniLeido);
+            bool idOk = int.TryParse(vec[6].Trim(), out idLeido);
+
+            if (!telefonoOk || !dniOk || !idOk)
+            {
+                throw new FormatException($"Error al convertir datos numéricos de cliente en la línea: '{linea}'. Asegúrese de que Teléfono, DNI e ID sean números válidos.");
+            }
+
+            return new CLSCliente(
+                vec[0].Trim(),      // Nombre
+                vec[1].Trim(),      // Apellido
+                vec[2].Trim(),      // Mail
+                telefonoLeido,      // Telefono
+                vec[4].Trim(),      // Password
+                dniLeido,           // DNI
+                idLeido             // ID
+            );
         }
     }
 }

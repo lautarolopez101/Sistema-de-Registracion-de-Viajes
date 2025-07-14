@@ -24,7 +24,7 @@ namespace SistemaDeViajes_v2
 
         private void btnRegistrarCliente_Click(object sender, EventArgs e)
         {
-            FRMRegistrarCliente nuevoform = new FRMRegistrarCliente();
+            FRMClienteABM nuevoform = new FRMClienteABM();
             nuevoform.Show();
             this.Hide();
         }

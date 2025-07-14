@@ -11,10 +11,8 @@ namespace SistemaDeViajes_v2
         
             List<CLSCliente> GetAllClientes();
             void AddCliente(CLSCliente cliente);
-            // Puedes añadir otros métodos si los necesitas en el futuro, por ejemplo:
-            // CLSCliente GetClienteByDNI(int dni);
-            // void UpdateCliente(CLSCliente cliente);
-            // void DeleteCliente(int id);
+            
+            void DeleteCliente(int idcliente);
         
     }
 }

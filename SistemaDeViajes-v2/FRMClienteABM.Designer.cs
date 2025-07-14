@@ -1,6 +1,6 @@
 ﻿namespace SistemaDeViajes_v2
 {
-    partial class FRMRegistrarCliente
+    partial class FRMClienteABM
     {
         /// <summary>
         /// Required designer variable.
@@ -40,11 +40,11 @@
             txtTelefonoCliente = new TextBox();
             txtPasswordCliente = new TextBox();
             txtDNICliente = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgvClientes = new DataGridView();
             btnRegistrarCliente = new Button();
             brnEliminarCliente = new Button();
             btnModificarCliente = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -143,13 +143,13 @@
             txtDNICliente.Size = new Size(100, 23);
             txtDNICliente.TabIndex = 11;
             // 
-            // dataGridView1
+            // dgvClientes
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(270, 43);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(492, 335);
-            dataGridView1.TabIndex = 12;
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(270, 43);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.Size = new Size(492, 335);
+            dgvClientes.TabIndex = 12;
             // 
             // btnRegistrarCliente
             // 
@@ -173,14 +173,14 @@
             // 
             // btnModificarCliente
             // 
-            btnModificarCliente.Location = new Point(385, 415);
+            btnModificarCliente.Location = new Point(390, 415);
             btnModificarCliente.Name = "btnModificarCliente";
             btnModificarCliente.Size = new Size(75, 23);
             btnModificarCliente.TabIndex = 15;
             btnModificarCliente.Text = "Modificar";
             btnModificarCliente.UseVisualStyleBackColor = true;
             // 
-            // FRMRegistrarCliente
+            // FRMClienteABM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -188,7 +188,7 @@
             Controls.Add(btnModificarCliente);
             Controls.Add(brnEliminarCliente);
             Controls.Add(btnRegistrarCliente);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvClientes);
             Controls.Add(txtDNICliente);
             Controls.Add(txtPasswordCliente);
             Controls.Add(txtTelefonoCliente);
@@ -201,9 +201,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "FRMRegistrarCliente";
+            Name = "FRMClienteABM";
             Text = "FRMRegistrarCliente";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -222,7 +222,7 @@
         private TextBox txtTelefonoCliente;
         private TextBox txtPasswordCliente;
         private TextBox txtDNICliente;
-        private DataGridView dataGridView1;
+        private DataGridView dgvClientes;
         private Button btnRegistrarCliente;
         private Button brnEliminarCliente;
         private Button btnModificarCliente;

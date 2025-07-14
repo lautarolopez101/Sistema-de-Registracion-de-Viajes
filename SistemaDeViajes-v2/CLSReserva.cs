@@ -63,5 +63,10 @@ namespace SistemaDeViajes_v2
             // Y que el formato de fecha sea consistente (ej. "yyyy-MM-dd HH:mm:ss")
             return $"{IdReserva};{IdCliente};{IdViaje};{AsientosSeleccionados};{CantidadAdultos};{CantidadNinios};{Estado};{FechaReserva:yyyy-MM-dd};{ImporteTotal}";
         }
+
+        internal static CLSReserva CreaReservaDesdeLinea(string linea)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
