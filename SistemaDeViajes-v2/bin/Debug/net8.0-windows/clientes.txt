@@ -1,0 +1,3 @@
+id,dni,nombre,apellido,email,password
+7,30123456,Juan,Pérez,juan@gmail.com,1234
+8,32123456,Ana,Gómez,ana@gmail.com,1234

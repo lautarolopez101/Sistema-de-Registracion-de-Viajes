@@ -1,0 +1,4 @@
+﻿Codigo,Origen,Destino,Fecha,Horario,Precio
+V123,Buenos Aires,Córdoba,2025-08-10,08:00,15000
+V124,Buenos Aires,Córdoba,2025-08-10,12:00,16000
+V125,Córdoba,Buenos Aires,2025-08-15,18:00,17000

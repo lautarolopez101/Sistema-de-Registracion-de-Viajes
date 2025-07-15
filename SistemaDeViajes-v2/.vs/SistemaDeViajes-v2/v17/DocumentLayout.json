@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormButacas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FormButacas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMisReservas.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FormMisReservas.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FormMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormLogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FormLogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\CLSReserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CLSReserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMisReservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FormMisReservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\formmisreservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:formmisreservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormReservarVuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FormReservarVuelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormMisReservas.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMisReservas.Designer.cs",
+              "RelativeDocumentMoniker": "FormMisReservas.Designer.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMisReservas.Designer.cs",
+              "RelativeToolTip": "FormMisReservas.Designer.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAMwD4AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T22:48:32.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMenu.cs",
+              "RelativeDocumentMoniker": "FormMenu.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMenu.cs",
+              "RelativeToolTip": "FormMenu.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAQwLUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T19:19:08.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormMenu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMenu.cs",
+              "RelativeDocumentMoniker": "FormMenu.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\source\\repos\\SistemaDeViajes-v2\\FormMenu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\SistemaDeViajes-v2\\FormMenu.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T19:19:03.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormLogin.cs",
+              "RelativeDocumentMoniker": "FormLogin.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormLogin.cs",
+              "RelativeToolTip": "FormLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T19:18:42.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormButacas.cs",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormButacas.cs",
+              "RelativeDocumentMoniker": "FormButacas.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormButacas.cs",
+              "RelativeToolTip": "FormButacas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T19:17:24.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CLSReserva.cs",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\CLSReserva.cs",
+              "RelativeDocumentMoniker": "CLSReserva.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\CLSReserva.cs",
+              "RelativeToolTip": "CLSReserva.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T19:09:54.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormMisReservas.cs",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMisReservas.cs",
+              "RelativeDocumentMoniker": "FormMisReservas.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMisReservas.cs",
+              "RelativeToolTip": "FormMisReservas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T18:58:11.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormMisReservas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormMisReservas.cs",
+              "RelativeDocumentMoniker": "FormMisReservas.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\source\\repos\\SistemaDeViajes-v2\\FormMisReservas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\SistemaDeViajes-v2\\FormMisReservas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T19:24:53.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormReservarVuelo.cs",
+              "DocumentMoniker": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormReservarVuelo.cs",
+              "RelativeDocumentMoniker": "FormReservarVuelo.cs",
+              "ToolTip": "C:\\Users\\Juli\u00E1n\\Desktop\\sistemaViajes\\SistemaDeViajes-v2\\FormReservarVuelo.cs",
+              "RelativeToolTip": "FormReservarVuelo.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwJMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T18:58:48.349Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
