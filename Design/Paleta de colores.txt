@@ -1,0 +1,6 @@
+
+Rol	Color	Hex
+Primario	Azul petróleo	#2C3E50
+Secundario	Gris claro	#ECF0F1
+Detalles 	Celeste claro	#3498DB
+Texto	        Gris oscuro	#2D2D2D

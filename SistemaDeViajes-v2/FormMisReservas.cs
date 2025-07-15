@@ -22,6 +22,7 @@ namespace SistemaDeViajes_v2
 
         private void BtnCancelarViaje_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (DgvReservasCliente.CurrentRow == null)
             {
                 MessageBox.Show("Seleccioná una reserva para cancelar.");
@@ -93,6 +94,11 @@ namespace SistemaDeViajes_v2
         }
 
 
+=======
+
+        }
+
+>>>>>>> d5c9284cf3308a32f306d8e02def64f594b61442
         private void FormMisReservas_Load(object sender, EventArgs e)
         {
             CargarReservasCliente();
@@ -134,6 +140,7 @@ namespace SistemaDeViajes_v2
                     reservas.Add(reserva);
                 }
             }
+<<<<<<< HEAD
 
             DgvReservasCliente.DataSource = reservas.Select(r => new
             {
@@ -148,6 +155,9 @@ namespace SistemaDeViajes_v2
                 Butacas = r.ButacasTexto
             }).ToList();
 
+=======
+            DgvReservasCliente.DataSource = reservas;
+>>>>>>> d5c9284cf3308a32f306d8e02def64f594b61442
         }
 
         private void AplicarEstiloDgv()

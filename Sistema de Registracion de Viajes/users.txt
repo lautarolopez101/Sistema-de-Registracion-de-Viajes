@@ -1,0 +1,4 @@
+Rol,User,Password,Name,LastName,DNI,FechaNacimiento,Address,Phone,Mail
+0,admin,admin123,Juan,Pérez,12345678,1980-05-15,Calle Falsa 123,1122334455,juanperez@email.com
+1,empleado,emp123,Ana,Gómez,23456789,1990-10-20,Avenida Siempre Viva 742,1133445566,anagomez@email.com
+2,cliente,cli456,Carlos,López,34567890,2000-07-30,Pasaje Sin Nombre 321,1144556677,carloslopez@email.com

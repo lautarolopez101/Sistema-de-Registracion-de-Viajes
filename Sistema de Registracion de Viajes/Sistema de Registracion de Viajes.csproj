@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{748D37FB-18B1-42EF-AA21-C02FD4E3BE05}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Sistema_de_Registracion_de_Viajes</RootNamespace>
+    <AssemblyName>Sistema de Registracion de Viajes</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\FRMAccountsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMAccountsManager.Designer.cs">
+      <DependentUpon>FRMAccountsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMAdmin.Designer.cs">
+      <DependentUpon>FRMAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMClientManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMClientManager.Designer.cs">
+      <DependentUpon>FRMClientManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMCompaniesManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMCompaniesManager.Designer.cs">
+      <DependentUpon>FRMCompaniesManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMEmployeerManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMEmployeerManager.Designer.cs">
+      <DependentUpon>FRMEmployeerManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FRMTripManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FRMTripManager.Designer.cs">
+      <DependentUpon>FRMTripManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\FRMClilent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\FRMClilent.Designer.cs">
+      <DependentUpon>FRMClilent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas\CLSEmpresas.cs" />
+    <Compile Include="Empresas\FRMLista_Empresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresas\FRMLista_Empresas.Designer.cs">
+      <DependentUpon>FRMLista_Empresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FRMSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FRMSignup.Designer.cs">
+      <DependentUpon>FRMSignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pasajes\CLSPasajecs.cs" />
+    <Compile Include="CLS\CLSAdministrador.cs" />
+    <Compile Include="CLS\CLSEmployeer.cs" />
+    <Compile Include="CLS\CLSClient.cs" />
+    <Compile Include="CLS\CLSPerson.cs" />
+    <Compile Include="Employeer\FRMEmployeer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employeer\FRMEmployeer.Designer.cs">
+      <DependentUpon>FRMEmployeer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empresas\FRMEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresas\FRMEmpresas.Designer.cs">
+      <DependentUpon>FRMEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMPasajeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMPasajeros.Designer.cs">
+      <DependentUpon>FRMPasajeros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FRMLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FRMLogin.Designer.cs">
+      <DependentUpon>FRMLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pasajeros.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\FRMAdmin.resx">
+      <DependentUpon>FRMAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\FRMClilent.resx">
+      <DependentUpon>FRMClilent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employeer\FRMEmployeer.resx">
+      <DependentUpon>FRMEmployeer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresas\FRMEmpresas.resx">
+      <DependentUpon>FRMEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresas\FRMLista_Empresas.resx">
+      <DependentUpon>FRMLista_Empresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMPasajeros.resx">
+      <DependentUpon>FRMPasajeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FRMLogin.dje-NE.resx">
+      <DependentUpon>FRMLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FRMLogin.resx">
+      <DependentUpon>FRMLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FRMSignup.resx">
+      <DependentUpon>FRMSignup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="CLS\Class Diagram.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Briefcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MySpace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Archivos\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

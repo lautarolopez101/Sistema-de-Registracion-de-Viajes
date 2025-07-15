@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Sistema_de_Registracion_de_Viajes.CLSAdministrador" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAEgA=</HashCode>
+      <FileName>CLS\CLSAdministrador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_de_Registracion_de_Viajes.CLSClient" Collapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAACAgASAAAAAAAAEgA=</HashCode>
+      <FileName>CLS\CLSClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_de_Registracion_de_Viajes.CLSEmployeer" Collapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAAAAAEgA=</HashCode>
+      <FileName>CLS\CLSEmployeer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_de_Registracion_de_Viajes.CLSPerson" Collapsed="true">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgABAQAAAEAAgACAAAAIQAAAAg=</HashCode>
+      <FileName>CLS\CLSPerson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
